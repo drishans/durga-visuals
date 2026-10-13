@@ -1,6 +1,6 @@
 # Show plan and camera experiment
 
-Current direction: use editable Wire shaders as the main motion system, AI stills as textures, and the 11 completed loops as optional playback material. The show runs entirely on the M1 Max Mac. The PC is for preparation.
+Current direction: manually operate three to five layers, keeping prior-year Durga images stable with barely visible fire/light/dust accents. Use editable Wire shaders for motion, AI stills as textures, and the 11 completed loops as optional playback material. [MAC-HANDOFF.md](MAC-HANDOFF.md) gives the starting layer order and USB transfer instructions. The show runs entirely on the M1 Max Mac. The PC is for preparation.
 
 ## Before depending on live effects
 
@@ -11,7 +11,7 @@ Current direction: use editable Wire shaders as the main motion system, AI still
 | 1 | Make a minimal show composition | Daytime, performance, dance/DJ, camera, and fallback looks are immediately accessible |
 | 1 | Rehearse the Mac output and recovery | A still, a loop, and a shader play on an external screen; camera can be removed without disrupting the fallback; composition reopens with all media offline |
 | 2 | Confirm music control | Manual tempo is usable; any audio-reactive controls have an actual tested audio input and restrained ranges |
-| 2 | Inspect last year's USB and running order | Existing Durga/Sindoor imagery is available locally, and the performer/DJ handoff is agreed |
+| 2 | Choose from the reviewed USB shortlist and confirm running order | Existing Durga/Sindoor imagery is available on the Mac, and the performer/DJ handoff is agreed |
 
 The wall's pixel count does not establish the processor's accepted computer signal. It might accept a larger standard raster and use a mapped rectangle. Ask the operator rather than assuming the Mac should output a custom 1248 x 540 display mode. Save the tested output preset separately from the composition. [Resolume output mapping](https://resolume.com/support/en/advanced-output)
 

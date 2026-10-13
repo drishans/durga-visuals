@@ -4,6 +4,8 @@ Open **outputs/demo.html** in a browser. It works offline. Use the arrow buttons
 
 For a quick start, play [the 90-second silent overview](outputs/meeting-showreel.mp4). Use [the look sheet](outputs/previews/meeting-collection.jpg) to compare the 12 still directions, then open the demo to revisit favorites. Both are also included in the ZIP.
 
+The [DJ title preview](outputs/dj-titles/preview.jpg) shows DJ Edwin, DJ Mumbai Rani, and DJ Dinu. Transparent show PNGs and editable SVGs are beside it. These newer files are in the USB's Project folder, separate from the original meeting ZIP.
+
 ## A simple 10-minute conversation
 
 1. Show the motion opener, then compare the performance, dance/DJ, and daytime options. Skip freely; there is no need to present every variation.

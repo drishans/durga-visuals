@@ -11,5 +11,6 @@
 - Keep setup and documentation concise. Prefer direct local files/API; MCP is optional. Do not add dependencies, automation frameworks, or move model weights without a concrete need.
 - Preserve existing workflows and assets. Check the queue before restarting ComfyUI. Never interrupt someone else's render.
 - Human time is flexible; overnight GPU work is acceptable. Test a sample before large batches, and distinguish tested results from proposals.
-- Existing Durga/Sindoor Khela images and DJ assets are on a USB, not yet reviewed. Camera silhouettes/trails are a later experiment using X4 or Olympus E-M10 IV.
+- Prior-year USB dGold was reviewed; the selected originals and silent video copies are in `Durga 2026/Previous years` on the USB, outside Git. Current ads also stay outside the public repository. `MAC-HANDOFF.md` explains the transfer and next session.
+- The user operates three to five Resolume layers manually. Prioritize stable Durga imagery with barely visible fire/light/dust accents; keep face/hand distortion off. DJ names are DJ Edwin, DJ Mumbai Rani, and DJ Dinu; transparent titles are in `outputs/dj-titles/`. Camera silhouettes/trails remain a later experiment using X4 or Olympus E-M10 IV.
 - Never use em dashes or add agent co-authors to commits. Do not manually edit generated/package files.
