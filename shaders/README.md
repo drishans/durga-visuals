@@ -7,6 +7,11 @@ These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declarat
 | [LiquidGold.fs](LiquidGold.fs) | Procedural source | Quiet gold motion behind performers; no image required |
 | [GoldenFlow.fs](GoldenFlow.fs) | Texture effect | Make the generated stills flow; try 12-24 pixels of displacement |
 | [DiamondKaleidoscope.fs](DiamondKaleidoscope.fs) | Texture effect | DJ visuals or a live camera; start with six facets and slow rotation |
+| [GoldDust.fs](GoldDust.fs) | Procedural source | Sparse drifting glitter; use Screen/Add as a quiet accent |
+| [GoldRibbons.fs](GoldRibbons.fs) | Procedural source | Twisting metallic ribbons framing performers |
+| [PrismField.fs](PrismField.fs) | Procedural source | Moving faceted reflections for DJ material |
+
+All six are in the local preview. [Additional source settings and validation](NEW-SHADERS.md) cover the three new procedural looks. Their output is opaque RGB; black becomes a transparent-looking accent only through the chosen blend mode.
 
 ![Live flow effect](../outputs/previews/shader-golden-flow.jpg)
 
@@ -69,4 +74,4 @@ The free [Desktop ISF Editor](https://isf.vidvox.net/desktop-editor/) can open t
 
 From the repository root, run `python -m http.server 8970 --bind 127.0.0.1`, then open [the preview](http://127.0.0.1:8970/shaders/preview/). It uses the same `.fs` sources with a WebGL 2 wrapper and runs locally. If using ComfyUI portable Python, add `-s` before `-m`.
 
-All three shaders compiled and rendered in the browser preview; each passed the **Check cycle** comparison with a maximum endpoint difference of **0/255** at default controls. This verifies shader math and WebGL rendering, not native Wire compilation or show-Mac performance. Wire/Syphon playback remains to be checked on the Mac. Refresh the page after editing a shader file.
+All six shaders compiled and rendered in the browser preview; each matched the phase 0/1 comparison with a maximum endpoint difference of **0/255** at default controls. **Check cycle** also compares the frame just before the wrap with phase zero and reports several ordinary frame changes for context. Endpoint equality alone cannot prove a smooth loop; inspect the motion too. This checks WebGL rendering, not native Wire compilation or show-Mac performance. Wire playback remains to be checked on the Mac. Refresh the page after editing a shader file.

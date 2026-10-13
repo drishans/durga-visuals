@@ -7,6 +7,7 @@ Golden glamour and contemporary bling for a three-night Durga event. Generate on
 ## Start here
 
 - **Current direction: live GLSL through Resolume Wire.** Start with the [first-patch walkthrough](shaders/README.md). Use the stills as textures; the completed video collection is optional.
+- [Show plan and camera experiment](SHOW-PLAN.md): Mac rehearsal, output mapping, operating layout, and the first X4/OBS test.
 - [Browse the collection](outputs/index.html): 15 still concepts and 11 finished loops. Open this file locally to review them.
 - [Wall stills](outputs/stills/wall/) and [1664 x 720 masters](outputs/stills/master/).
 - [Looping MP4 clips](outputs/video/loops/) and [motion prompts](outputs/golden-glamour-motion-prompts.json).

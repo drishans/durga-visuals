@@ -37,7 +37,7 @@ function setupControls() {
     line.append(name,value); const control=document.createElement('input');
     control.setAttribute('aria-label',input.LABEL||input.NAME);
     if(input.TYPE==='bool'){control.type='checkbox';control.checked=input.DEFAULT;}
-    else{control.type='range';control.min=input.MIN;control.max=input.MAX;control.step=input.NAME==='segments'?'1':'0.01';control.value=input.DEFAULT;}
+    else{control.type='range';control.min=input.MIN;control.max=input.MAX;control.step=['segments','ribbons'].includes(input.NAME)?'1':'0.01';control.value=input.DEFAULT;}
     control.addEventListener('input',()=>{values[input.NAME]=input.TYPE==='bool'?control.checked:Number(control.value);value.textContent=input.TYPE==='bool'?'':Number(control.value).toFixed(2);draw();});
     label.append(line,control); document.querySelector('#controls').append(label);
   }
@@ -87,10 +87,15 @@ textureSelect.addEventListener('change',()=>setTexture(`../../outputs/stills/wal
 document.querySelector('#upload').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;const url=URL.createObjectURL(file);try{await setTexture(url);}catch(e){error.textContent=e.message;}finally{URL.revokeObjectURL(url);}});
 document.querySelector('#pause').addEventListener('click',event=>{running=!running;event.target.textContent=running?'Pause':'Play';});
 document.querySelector('#check').addEventListener('click',()=>{
-  const a=new Uint8Array(canvas.width*canvas.height*4),b=new Uint8Array(a.length);
-  draw({animate:false,phase:0});gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,a);
-  draw({animate:false,phase:1});gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,b);
-  let maximum=0;for(let i=0;i<a.length;i++)maximum=Math.max(maximum,Math.abs(a[i]-b[i]));
-  status.textContent=`Cycle check: maximum endpoint difference ${maximum}/255. ${maximum===0?'Exact match.':'Inspect the join.'}`;draw();
+  const capture=phase=>{const pixels=new Uint8Array(canvas.width*canvas.height*4);draw({animate:false,phase});gl.readPixels(0,0,canvas.width,canvas.height,gl.RGBA,gl.UNSIGNED_BYTE,pixels);return pixels;};
+  const meanDelta=(a,b)=>{let sum=0;for(let i=0;i<a.length;i+=4)for(let c=0;c<3;c++)sum+=Math.abs(a[i+c]-b[i+c]);return sum/(a.length*.75);};
+  const start=capture(0),end=capture(1);
+  let maximum=0;for(let i=0;i<start.length;i++)maximum=Math.max(maximum,Math.abs(start[i]-end[i]));
+  // Exact endpoint equality alone can hide a jump caused by fract(). Compare
+  // real adjacent frames across the wrap, too. These are diagnostics, not proof.
+  const step=1/(30*Math.max(values.loopSeconds,0.01));
+  const wrap=meanDelta(capture(1-step),start);
+  const ordinary=[meanDelta(start,capture(step)),meanDelta(capture(.25),capture(.25+step)),meanDelta(capture(.5),capture(.5+step)),meanDelta(capture(.75),capture(.75+step))];
+  status.textContent=`Cycle: endpoints ${maximum}/255; wrap change ${wrap.toFixed(2)}/255; sampled frame changes ${Math.min(...ordinary).toFixed(2)}-${Math.max(...ordinary).toFixed(2)}/255. ${maximum===0?'Inspect motion at the join.':'Endpoints differ.'}`;draw();
 });
 function tick(now){if(running)time+=(now-last)/1000;last=now;if(now-lastDraw>1000/30){draw();lastDraw=now;}requestAnimationFrame(tick);}requestAnimationFrame(tick);
