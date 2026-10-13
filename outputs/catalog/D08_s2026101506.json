@@ -1,0 +1,11 @@
+{
+  "id": "D08",
+  "title": "Sapphire gold passage",
+  "seed": 2026101506,
+  "prompt": "An ultra-wide abstract portal made of enormous clear sapphire-blue glass slabs and solid polished gold beams, angled sculptural planes receding into a deep dark central passage, electric cobalt reflections inside the thick glass and warm yellow gold catching broad softbox highlights, strong immersive perspective and crisp dimensional geometry, modern luxury music video set, bold readable forms at the sides, high contrast without blown-out light, contemporary bling expressed through oversized precious materials, photorealistic 3D rendering, no text, no logos, no people, no ornate architecture.",
+  "seconds": 27.05,
+  "files": {
+    "master": "outputs/stills/master/D08_s2026101506.png",
+    "wall": "outputs/stills/wall/D08_s2026101506.png"
+  }
+}

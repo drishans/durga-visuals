@@ -27,7 +27,7 @@ page = '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewp
 <header><div><small>DURGA / VISUAL COLLECTION</small><h1>Golden Glamour</h1><p>Gold, diamonds, and flowing light. Ready to explore.</p></div><nav><a href="#motion">Motion</a><a href="#stills">Stills</a><a href="../shaders/preview/">Live shaders</a><a href="../README.md">Setup</a></nav></header><main>
 '''
 page += f'<h2 id="motion">Motion / {len(videos)} loops</h2><p class="intro">1248 × 540. Play one to preview; it repeats automatically. Wan clips use eased forward/reverse motion. Procedural clips use continuous periodic displacement. ProRes LT copies are in the local video/prores folder.</p><div class="grid">' + ''.join(cards) + '</div>'
-page += f'<h2 id="stills">Stills / {len(stills)} concepts</h2><div class="grid">' + ''.join(still_cards) + '</div>'
+page += f'<h2 id="stills">Stills / {len(stills)} renders</h2><div class="grid">' + ''.join(still_cards) + '</div>'
 page += '''<footer>Use these as source material for Resolume. The live shader preview needs the local HTTP server described in the shader guide. This collection page also opens directly from disk.</footer></main>
 <script>for(const button of document.querySelectorAll('[data-play]')){const video=document.getElementById(button.dataset.play);button.addEventListener('click',()=>{if(video.paused){for(const other of document.querySelectorAll('video'))if(other!==video)other.pause();video.play().catch(()=>{button.textContent='Use video controls';});}else video.pause();});video.addEventListener('play',()=>button.textContent='Pause');video.addEventListener('pause',()=>button.textContent='Play');}</script></html>'''
 (out/'index.html').write_text(page,encoding='utf-8')

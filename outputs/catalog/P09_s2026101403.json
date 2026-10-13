@@ -1,0 +1,11 @@
+{
+  "id": "P09",
+  "title": "Crimson velvet spotlight",
+  "seed": 2026101403,
+  "prompt": "A panoramic contemporary performance backdrop, a broad low wave of deep ruby red velvet sweeping across the bottom edge, two smooth liquid gold arcs curling at the far corners, spacious almost-black burgundy center with a subtle warm glow from above, the gold looks heavy and polished with crisp studio reflections, rich fabric texture and broad sculptural forms, confident glamorous music-stage design, restrained festive red and gold, generous dark room around performers, extremely clean composition, no curtains hanging across the center, no objects in the center, no text, no figures, no architecture.",
+  "seconds": 27.06,
+  "files": {
+    "master": "outputs/stills/master/P09_s2026101403.png",
+    "wall": "outputs/stills/wall/P09_s2026101403.png"
+  }
+}

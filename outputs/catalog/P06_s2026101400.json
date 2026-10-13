@@ -1,0 +1,11 @@
+{
+  "id": "P06",
+  "title": "Emerald after dark",
+  "seed": 2026101400,
+  "prompt": "A panoramic stage background designed for a very wide LED wall, deep emerald velvet and a single broad ribbon of polished 18 karat gold curling around the far left and far right edges, sculptural fabric draping with large smooth folds, black-green negative space across the entire middle half, confident high jewelry fashion campaign photography, emerald as a deep accent and rich yellow gold as the hero material, soft grazing light revealing texture, luxurious dark shadows, restrained small white reflections, balanced asymmetry, tactile and photorealistic, clean large silhouettes readable at a distance, no text, no people, no architecture.",
+  "seconds": 39.29,
+  "files": {
+    "master": "outputs/stills/master/P06_s2026101400.png",
+    "wall": "outputs/stills/wall/P06_s2026101400.png"
+  }
+}

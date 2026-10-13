@@ -1,0 +1,11 @@
+{
+  "id": "D07",
+  "title": "Midnight mirrorball",
+  "seed": 2026101505,
+  "prompt": "A panoramic contemporary disco installation, a single enormous champagne-gold mirrored disco sphere cropped into the upper right corner, its many square mirror tiles individually visible and physically aligned on the spherical surface, sparse geometric gold light patches stretching diagonally across a deep black space toward the lower left, a very subtle purple reflected accent, premium nightclub fashion editorial, bold sparkling geometry with a large calm black region, high contrast controlled jewelry lighting, photorealistic polished mirror material, no ceiling or support rig, no text, no people, no excessive starbursts.",
+  "seconds": 27.1,
+  "files": {
+    "master": "outputs/stills/master/D07_s2026101505.png",
+    "wall": "outputs/stills/wall/D07_s2026101505.png"
+  }
+}

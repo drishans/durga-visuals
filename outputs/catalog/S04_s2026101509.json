@@ -1,0 +1,11 @@
+{
+  "id": "S04",
+  "title": "Champagne daylight",
+  "seed": 2026101509,
+  "prompt": "An ultra-wide minimal luxury still life for a daytime event screen, a warm luminous cream background with two broad sculptural pieces of hammered champagne-gold foil curling gently at opposite outer corners, three small round-cut clear diamonds placed near the foil at the lower right, soft long shadows and natural morning studio light, refined gallery-like atmosphere, mostly clean ivory negative space, large tactile forms with realistic gold reflections, modern sophisticated glamour visible in a bright room, no jewelry boxes, no text, no people, no ornate pattern.",
+  "seconds": 27.06,
+  "files": {
+    "master": "outputs/stills/master/S04_s2026101509.png",
+    "wall": "outputs/stills/wall/S04_s2026101509.png"
+  }
+}

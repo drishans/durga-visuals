@@ -1,0 +1,11 @@
+{
+  "id": "P08",
+  "title": "Golden fanlight",
+  "seed": 2026101402,
+  "prompt": "An ultra-wide contemporary sculptural stage background, two enormous folded fans of brushed gold metal opening from the lower left and upper right corners, broad radial gold pleats separated by rich black shadow, crisp architectural rhythm with beautifully controlled grazing highlights, the fans stay at the sides and leave a large deep black central area, modern luxury album-cover art direction, elegant art deco influence expressed only through abstract geometry, matte black and champagne gold, tactile photorealistic metal, clean bold shapes, no buildings, no lettering, no people, no ornamental borders.",
+  "seconds": 27.05,
+  "files": {
+    "master": "outputs/stills/master/P08_s2026101402.png",
+    "wall": "outputs/stills/wall/P08_s2026101402.png"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "P07",
+  "title": "Pearl and champagne",
+  "seed": 2026101501,
+  "prompt": "An ultra-wide editorial jewelry material composition, a few oversized luminous ivory pearls resting among broad champagne gold satin folds at the outer edges, beautiful subtle pearlescent iridescence and softly brushed pale gold metal, deep warm charcoal empty space across the middle, one large pearl partly cropped at the far left and a smaller cluster along the lower right, sophisticated modern evening glamour, warm studio softbox lighting, realistic surfaces and gentle depth, a calm stage backdrop with minimal visual clutter, no necklace strands crossing the center, no text, no people, no palace ornament.",
+  "seconds": 27.07,
+  "files": {
+    "master": "outputs/stills/master/P07_s2026101501.png",
+    "wall": "outputs/stills/wall/P07_s2026101501.png"
+  }
+}

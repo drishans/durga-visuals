@@ -2,16 +2,17 @@
 
 Golden glamour and contemporary bling for a three-night Durga event. Generate on a Windows RTX 5090; play from an M1 Max Mac in Resolume. LED wall: **1248 x 540**, aspect **104:45**.
 
-![Generated still collection](outputs/previews/still-collection.jpg)
+![Meeting visual directions](outputs/previews/meeting-collection.jpg)
 
 ## Start here
 
+- **Meeting demo:** [15 curated looks](outputs/demo.html), a [90-second silent overview](outputs/meeting-showreel.mp4), and the [meeting guide](MEETING.md). The local `outputs/meeting-demo.zip` bundles everything for the Mac; extract it and open `demo.html`.
 - **Current direction: live GLSL through Resolume Wire.** Start with the [first-patch walkthrough](shaders/README.md). Use the stills as textures; the completed video collection is optional.
 - [Show plan and camera experiment](SHOW-PLAN.md): Mac rehearsal, output mapping, operating layout, and the first X4/OBS test.
-- [Browse the collection](outputs/index.html): 15 still concepts and 11 finished loops. Open this file locally to review them.
+- [Browse the collection](outputs/index.html): 39 still renders and 11 finished loops. The meeting selection contains 12 new still directions and three existing motion samples. Open either page locally to review it.
 - [Wall stills](outputs/stills/wall/) and [1664 x 720 masters](outputs/stills/master/).
 - [Looping MP4 clips](outputs/video/loops/) and [motion prompts](outputs/golden-glamour-motion-prompts.json).
-- [Still prompts](outputs/golden-glamour-prompts.md), [render settings and seeds](outputs/catalog/), and [video processing records](outputs/video/catalog/).
+- [Original still prompts](outputs/golden-glamour-prompts.md), [meeting prompts](outputs/meeting-prompts.md), [render settings and seeds](outputs/catalog/), and [video processing records](outputs/video/catalog/).
 - [Live GLSL shaders and Resolume routing](shaders/README.md), with an interactive local preview.
 - [Setup and verification](outputs/setup-status.md). ProRes LT masters stay local in `outputs/video/prores/`; model weights and raw video are excluded from Git.
 
@@ -52,6 +53,7 @@ Run from the project root with the portable Python executable or an environment 
 
 ```powershell
 python scripts/render_stills.py --comfy-root '<ComfyUI>' --variants 1
+python scripts/render_stills.py --comfy-root '<ComfyUI>' --prompts outputs/meeting-prompts.md --seed 2026101400 --variants 2
 python scripts/render_motion_batch.py --comfy-root '<ComfyUI>' --start 0 --count 1
 python scripts/contact_sheet.py
 ```
@@ -62,6 +64,6 @@ The scripts save seeds and prompts, retain PNG workflow metadata, and stop if an
 
 Use a **1248 x 540** composition. Start with liquid gold or vermilion silk behind performers; use the waveform, facets, chains, and prisms for DJ material. Stills also animate through transforms, distortion, feedback, kaleidoscopes, and audio-reactive effect parameters. Video is useful source motion, not a requirement for every effect.
 
-The MP4s have no audio and use all-intra H.264. Local ProRes LT copies are available for conversion to DXV in [Resolume Alley](https://resolume.com/software/alley). Repeating a delivered loop uses normal forward looping; avoid an extra clip crossfade that would change its timing. Try slow playback and gentle effects first. Use normal forward looping on the delivered files: reversal, where used, is already baked in. These short cycles are reusable building blocks, not a finished three-night show.
+The clips in `video/loops/` have no audio and use all-intra H.264. Local ProRes LT copies are available for conversion to DXV in [Resolume Alley](https://resolume.com/software/alley). Repeating a delivered loop uses normal forward looping; avoid an extra clip crossfade that would change its timing. Try slow playback and gentle effects first. Reversal, where used, is already baked in. These short cycles are reusable building blocks, not a finished three-night show. The separate meeting showreel is a labeled 1280 x 720 presentation, not a wall-ready loop.
 
 Black overlay plates are RGB, not transparent: use Screen/Add and adjust opacity. Confirm readability and brightness on the actual wall. Existing Durga/Sindoor Khela imagery remains on last year's USB and is not included here. Live camera interaction is a separate later experiment.

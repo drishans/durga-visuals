@@ -1,0 +1,11 @@
+{
+  "id": "P06",
+  "title": "Emerald after dark",
+  "seed": 2026101500,
+  "prompt": "An edge-to-edge panoramic abstract material photograph, deep emerald velvet and a broad ribbon of polished 18 karat gold curling through the far left and far right corners, huge smooth sculptural folds cropped by the edges of the photograph, black-green negative space fading organically across the entire middle half, confident high jewelry fashion campaign photography, emerald as a deep accent and rich yellow gold as the hero material, soft grazing light revealing texture, luxurious dark shadows, restrained small white reflections, balanced asymmetry, tactile and photorealistic, flat uninterrupted image with large silhouettes, no room, no stage, no screen, no frame, no rectangular panel, no floor, no lettering, no people.",
+  "seconds": 27.06,
+  "files": {
+    "master": "outputs/stills/master/P06_s2026101500.png",
+    "wall": "outputs/stills/wall/P06_s2026101500.png"
+  }
+}

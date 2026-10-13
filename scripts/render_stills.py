@@ -14,12 +14,21 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--comfy-root', required=True, type=Path)
 parser.add_argument('--variants', type=int, default=1)
 parser.add_argument('--seed', type=int, default=2026101200)
+parser.add_argument('--prompts', type=Path, help='Prompt Markdown; defaults to the original collection')
+parser.add_argument('--limit', type=int, help='Render only the first N concepts, useful for a sample')
 args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 out = root / 'outputs'
 graph_template = json.loads((out / 'golden-glamour-z-image-api.json').read_text())
 ui_template = json.loads((out / 'golden-glamour-z-image.json').read_text())
-prompts = re.findall(r'### ([PDOS]\d+) - ([^\n]+)\s+```text\n(.*?)\n```', (out / 'golden-glamour-prompts.md').read_text(encoding='utf-8'), re.S)
+prompt_file = args.prompts or out / 'golden-glamour-prompts.md'
+prompts = re.findall(r'### ([PDOS]\d+) - ([^\n]+)\s+```text\n(.*?)\n```', prompt_file.read_text(encoding='utf-8'), re.S)
+if not prompts:
+    parser.error('No prompts found in ' + str(prompt_file))
+if args.variants < 1 or (args.limit is not None and args.limit < 1):
+    parser.error('variants and limit must be positive')
+if args.limit is not None:
+    prompts = prompts[:args.limit]
 catalog = out / 'catalog'
 catalog.mkdir(exist_ok=True)
 for variant in range(args.variants):
