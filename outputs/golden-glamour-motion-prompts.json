@@ -1,0 +1,50 @@
+[
+  {
+    "name": "P01_liquid_gold",
+    "source": "P01_s2026101200.png",
+    "seed": 2026101250,
+    "prompt": "Locked-off camera. Broad champagne-gold liquid-metal folds slowly undulate like heavy silk in a gentle breeze. Highlights glide continuously across the curved reflective surfaces. The motion completes a slow breathing cycle and returns to the starting composition. Deep charcoal center stays open and dark. Elegant restrained motion, physically coherent material, seamless-looking ambient stage background, no camera movement, no cuts."
+  },
+  {
+    "name": "D03_gold_frequency",
+    "source": "D03_s2026101207.png",
+    "seed": 2026101251,
+    "prompt": "Locked camera on a single sculptural liquid-gold waveform suspended against pure black. Smooth traveling waves ripple through the ribbon from left to right. The peaks rise and fall rhythmically while long continuous specular highlights roll over the polished metal. A hypnotic repeating wave cycle returns to its initial form. The ribbon remains one coherent connected sculpture, all motion contained within the panoramic frame. Sophisticated hip-hop concert visual, steady exposure, fluid motion, no cuts, no camera motion."
+  },
+  {
+    "name": "P05_vermilion_silk",
+    "source": "P05_s2026101204.png",
+    "seed": 2026101252,
+    "prompt": "Fixed wide camera. Rich vermilion satin and broad gold ribbons billow slowly along the lower edges of the composition, like luxurious heavy fabric breathing in a gentle breeze. Smooth waves pass through the folds and gradually settle back into the original arrangement. Gold reflections slide softly across the ribbons. The center stays spacious and dark red. Graceful continuous motion for a live performance backdrop, consistent lighting, no cuts, no camera movement."
+  },
+  {
+    "name": "D04_gold_cavern",
+    "source": "D04_s2026101208.png",
+    "seed": 2026101253,
+    "prompt": "Stationary camera inside an abstract faceted black-and-gold crystalline tunnel. Broad reflected bands of warm light travel gently along the gold planes toward the center and circulate back in a continuous cycle. The rigid geometric facets remain sharp and stable. A subtle slow breathing rotation of the reflected light gives a hypnotic sense of depth without moving the camera. Bold reflective gold, deep black shadows, controlled highlights, continuous shot, no flicker or sudden flashes."
+  },
+  {
+    "name": "P03_cuban_chains",
+    "source": "P03_s2026101202.png",
+    "seed": 2026101254,
+    "prompt": "Fixed panoramic camera. Heavy polished gold Cuban-link chains at the outer corners sway gently as if suspended, completing one slow pendulum cycle and returning to their original position. The connected links retain their solid rounded shapes and physical weight. Warm studio highlights drift along the links. The central matte-black space stays clear for performers. Contemporary luxury hip-hop atmosphere, smooth restrained movement, no new objects, no cuts or camera motion."
+  },
+  {
+    "name": "D02_diamond_prisms",
+    "source": "D02_s2026101206.png",
+    "seed": 2026101255,
+    "prompt": "Locked-off wide camera. Large clear diamond prisms frame a black central void. The faceted crystals rotate very slowly by a few degrees and back, producing smoothly traveling champagne, icy blue and violet internal reflections. Crisp rigid geometry, restrained high-jewelry lighting, deep clean blacks. Continuous hypnotic refraction cycle, no sudden bright flashes, no explosions, no camera movement or cuts."
+  },
+  {
+    "name": "P02_diamond_fringe",
+    "source": "P02_s2026101201.png",
+    "seed": 2026101256,
+    "prompt": "Static panoramic camera on a sparse fringe of suspended brilliant-cut diamonds. The hanging stones gently sway and rotate by small angles in a slow repeating cycle. Soft warm reflections glide across their facets with tiny restrained glints. The central and lower black area remains still and empty. Sophisticated high-jewelry campaign lighting, stable exposure, physically coherent pendulum motion, no flashing, no additional objects or camera movement."
+  },
+  {
+    "name": "O02_gold_dust",
+    "source": "O02_s2026101211.png",
+    "seed": 2026101257,
+    "prompt": "Fixed camera. A sparse stream of fine gold particles flows smoothly in a broad curved current against deep black, drifting in a slow continuous looping eddy. Particles remain small points of warm light with gentle depth and soft glints, never becoming smoke or thick clouds. The open black space stays clean. Graceful restrained motion suitable for a Screen-blend overlay, no bright bursts, no flashes, no camera movement, no cuts."
+  }
+]

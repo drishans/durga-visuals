@@ -1,0 +1,11 @@
+{
+  "id": "O02",
+  "title": "Gold dust sweep",
+  "seed": 2026101211,
+  "prompt": "An ultra-wide compositing plate, a sparse sweeping arc of glowing gold particles rising gently from the lower left toward the far right edge, a mix of a few larger soft amber points and small sharply defined gold sparks, particles occupy only a narrow flowing band, central upper area completely empty, solid pure black background, elegant slow celebratory sparkle, no smoke, no gray fog, no scenery, no lettering.",
+  "seconds": 33.07,
+  "files": {
+    "master": "outputs/stills/master/O02_s2026101211.png",
+    "wall": "outputs/stills/wall/O02_s2026101211.png"
+  }
+}

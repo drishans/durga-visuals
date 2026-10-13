@@ -1,0 +1,11 @@
+{
+  "id": "P02",
+  "title": "Diamond fringe",
+  "seed": 2026101201,
+  "prompt": "An ultra-wide black stage backdrop with a sparse fringe of large brilliant-cut diamonds suspended along the very top edge, each stone individually defined with realistic internal refraction and subtle champagne reflections, a few small gold mounting details, almost all of the central and lower canvas remains uninterrupted deep black, elegant high jewelry editorial photography, precise softbox lighting, controlled white points of light, extremely clean panoramic composition, subtle luxury, no lettering.",
+  "seconds": 33.11,
+  "files": {
+    "master": "outputs/stills/master/P02_s2026101201.png",
+    "wall": "outputs/stills/wall/P02_s2026101201.png"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "O03",
+  "title": "Luminous corner ribbons",
+  "seed": 2026101212,
+  "prompt": "An ultra-wide black compositing plate with two isolated curling ribbons of luminous champagne-gold light, one confined to the upper left corner and one to the lower right corner, smooth thick graceful curves with bright gold edges and subtle internal reflections, the middle two thirds entirely black, clean separation from a perfectly black background, premium minimal celebration graphic, no haze, no objects in the center, no text.",
+  "seconds": 33.08,
+  "files": {
+    "master": "outputs/stills/master/O03_s2026101212.png",
+    "wall": "outputs/stills/wall/O03_s2026101212.png"
+  }
+}

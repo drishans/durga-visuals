@@ -1,0 +1,34 @@
+[
+  {
+    "file": "FX_D03_gold_wave.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 0.706,
+    "maximum_frame_delta": 0.785,
+    "wrap_delta": 0.79
+  },
+  {
+    "file": "FX_O03_gold_ribbons.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 0.454,
+    "maximum_frame_delta": 0.494,
+    "wrap_delta": 0.5
+  },
+  {
+    "file": "FX_P05_vermilion_flow.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 0.467,
+    "maximum_frame_delta": 0.503,
+    "wrap_delta": 0.409
+  },
+  {
+    "file": "P01_liquid_gold.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 2.29,
+    "maximum_frame_delta": 4.356,
+    "wrap_delta": 0.27
+  }
+]

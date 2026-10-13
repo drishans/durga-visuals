@@ -1,0 +1,18 @@
+{
+  "name": "FX_P05_vermilion_flow",
+  "source": "outputs/stills/wall/P05_s2026101204.png",
+  "loop": "outputs/video/loops/FX_P05_vermilion_flow.mp4",
+  "prores": "outputs/video/prores/FX_P05_vermilion_flow.mov",
+  "dimensions": [
+    1248,
+    540
+  ],
+  "fps": 30,
+  "frames": 240,
+  "duration_seconds": 8.0,
+  "amplitude_pixels": [
+    14,
+    16
+  ],
+  "processing": "Z-Image still animated with periodic sinusoidal 2D displacement. CPU-rendered texture motion, not AI video. Full-period sampling omits the duplicate endpoint; no crossfade or reversal. ProRes LT master and all-intra H.264 delivery."
+}

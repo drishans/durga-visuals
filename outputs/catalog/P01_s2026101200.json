@@ -1,0 +1,11 @@
+{
+  "id": "P01",
+  "title": "Liquid gold, dark center (starter)",
+  "seed": 2026101200,
+  "prompt": "An ultra-wide stage background, sculptural folds of polished champagne gold flowing in from the lower left and upper right edges, broad fluid metal surfaces with beautifully controlled reflections and fine brushed detail, deep warm charcoal negative space across the middle half of the image, one elegant diagonal flow, black studio environment, contemporary luxury jewelry campaign lighting, restrained bright highlights, rich dimensional shadows, minimal and confident, photorealistic material study, edge-to-edge panoramic composition, the gold shapes stay primarily at the outer edges, no typography.",
+  "seconds": 30.76,
+  "files": {
+    "master": "outputs/stills/master/P01_s2026101200.png",
+    "wall": "outputs/stills/wall/P01_s2026101200.png"
+  }
+}

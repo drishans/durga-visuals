@@ -1,0 +1,11 @@
+{
+  "id": "D03",
+  "title": "Gold frequency",
+  "seed": 2026101207,
+  "prompt": "An ultra-wide abstract sculpture of a single thick liquid-gold ribbon oscillating across a black void like a bass waveform, broad rounded crests and valleys, a continuous smooth surface, strong near-to-far depth, molten mirror finish with warm yellow gold and dark bronze reflections, dramatic studio lighting, clean dimensional silhouette, energetic contemporary club aesthetic, generous black separation around the ribbon, no fine tangled filaments, no lettering.",
+  "seconds": 33.1,
+  "files": {
+    "master": "outputs/stills/master/D03_s2026101207.png",
+    "wall": "outputs/stills/wall/D03_s2026101207.png"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "D01",
+  "title": "Chain portal",
+  "seed": 2026101205,
+  "prompt": "An ultra-wide surreal jewelry installation, a massive oval ring made from thick perfectly interlocking polished gold Cuban chain links floating in a black void, the opening is wide and dark, the chain ring fills the outer edges of the panoramic frame, several smaller rings recede into deep perspective through the opening, physically convincing heavy gold, dramatic amber rim light and crisp white reflections, modern hip-hop luxury, bold readable geometry, photorealistic 3D render, no text, no people.",
+  "seconds": 33.12,
+  "files": {
+    "master": "outputs/stills/master/D01_s2026101205.png",
+    "wall": "outputs/stills/wall/D01_s2026101205.png"
+  }
+}

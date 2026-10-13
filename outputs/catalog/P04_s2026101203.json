@@ -1,0 +1,11 @@
+{
+  "id": "P04",
+  "title": "Satin and metal",
+  "seed": 2026101203,
+  "prompt": "An ultra-wide abstract stage background of black satin drapery and two broad champagne-gold metallic ribbons, gentle sweeping horizontal folds along the bottom third, soft side lighting, deep shadowed center and upper half, refined material contrast between soft black fabric and hard reflective gold, elegant modern fashion campaign aesthetic, large simple shapes, subtle depth, quiet visual rhythm, no figures, no typography, no ornate architecture.",
+  "seconds": 33.11,
+  "files": {
+    "master": "outputs/stills/master/P04_s2026101203.png",
+    "wall": "outputs/stills/wall/P04_s2026101203.png"
+  }
+}

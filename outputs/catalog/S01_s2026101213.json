@@ -1,0 +1,11 @@
+{
+  "id": "S01",
+  "title": "Warm gold welcome background",
+  "seed": 2026101213,
+  "prompt": "An ultra-wide minimal festive background, a warm ivory field with a subtle handmade paper texture, sweeping brushed-gold foil curves confined to the lower left and upper right corners, a few small faceted diamond accents nestled into the gold curves, generous clean center for separately typeset event information, soft natural light, polished contemporary luxury, simple large shapes, no generated text, no people, no religious figures.",
+  "seconds": 33.09,
+  "files": {
+    "master": "outputs/stills/master/S01_s2026101213.png",
+    "wall": "outputs/stills/wall/S01_s2026101213.png"
+  }
+}

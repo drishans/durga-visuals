@@ -1,0 +1,11 @@
+{
+  "id": "O01",
+  "title": "Sparse diamond glints",
+  "seed": 2026101210,
+  "prompt": "An ultra-wide black compositing plate with twelve isolated small diamond-like glints distributed asymmetrically around the outer thirds, a few clean four-point white star reflections with warm gold cores, substantial separation between every glint, most of the image is perfectly solid black, restrained high jewelry sparkle, crisp bright shapes with a tiny soft falloff, no haze, no environment, no surface, no text.",
+  "seconds": 33.08,
+  "files": {
+    "master": "outputs/stills/master/O01_s2026101210.png",
+    "wall": "outputs/stills/wall/O01_s2026101210.png"
+  }
+}

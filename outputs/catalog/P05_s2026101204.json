@@ -1,0 +1,11 @@
+{
+  "id": "P05",
+  "title": "Vermilion and gold",
+  "seed": 2026101204,
+  "prompt": "A contemporary ultra-wide abstract composition, deep vermilion silk-like waves gently framing the outer edges of a dark oxblood center, a thin sculptural ribbon of luminous brushed gold tracing one wave across the lower edge, warm soft light, rich tactile surfaces, generous open middle area, restrained celebratory energy, sophisticated red and gold palette, clean large forms visible from a distance, no text, no people, no religious figures, no ornate palace decoration.",
+  "seconds": 33.11,
+  "files": {
+    "master": "outputs/stills/master/P05_s2026101204.png",
+    "wall": "outputs/stills/wall/P05_s2026101204.png"
+  }
+}

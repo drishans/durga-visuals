@@ -1,0 +1,11 @@
+{
+  "id": "S02",
+  "title": "Sindoor-inspired abstract frame",
+  "seed": 2026101214,
+  "prompt": "A refined panoramic abstract frame, rich vermilion pigment textures and crimson silk folds gathered along the far left and right edges, delicate irregular gold leaf highlights, calm warm cream negative space across the central half, contemporary editorial composition, tactile and celebratory, suitable as a background around separately placed existing festival artwork, no people, no deity imagery, no text, no ornate architecture.",
+  "seconds": 33.09,
+  "files": {
+    "master": "outputs/stills/master/S02_s2026101214.png",
+    "wall": "outputs/stills/wall/S02_s2026101214.png"
+  }
+}

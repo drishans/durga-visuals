@@ -1,0 +1,11 @@
+{
+  "id": "D04",
+  "title": "Faceted gold cavern",
+  "seed": 2026101208,
+  "prompt": "An ultra-wide geometric tunnel constructed from enormous irregular planes of polished gold and black onyx, central vanishing point, strong perspective, bold angular facets and crisp edges, alternating dark panels and warm gold reflections, only a few concentrated white highlights, sophisticated contemporary stage scenography, immersive depth, dense geometry at the edges and a dark open distance in the middle, premium photorealistic architectural rendering, no lettering, no people.",
+  "seconds": 33.07,
+  "files": {
+    "master": "outputs/stills/master/D04_s2026101208.png",
+    "wall": "outputs/stills/wall/D04_s2026101208.png"
+  }
+}

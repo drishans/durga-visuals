@@ -1,0 +1,10 @@
+work/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.safetensors
+*.gguf
+outputs/video/raw/
+outputs/video/prores/
+outputs/*.zip

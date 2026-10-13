@@ -1,0 +1,6 @@
+# Copy to ComfyUI/extra_model_paths.yaml, then restart ComfyUI.
+durga_models:
+  base_path: D:/AI/models/
+  text_encoders: text_encoders/
+  diffusion_models: diffusion/
+  vae: vae/
