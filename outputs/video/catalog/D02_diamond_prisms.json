@@ -1,0 +1,16 @@
+{
+  "name": "D02_diamond_prisms",
+  "seed": 2026101255,
+  "motion_prompt": "Locked-off wide camera. Large clear diamond prisms frame a black central void. The faceted crystals rotate very slowly by a few degrees and back, producing smoothly traveling champagne, icy blue and violet internal reflections. Crisp rigid geometry, restrained high-jewelry lighting, deep clean blacks. Continuous hypnotic refraction cycle, no sudden bright flashes, no explosions, no camera movement or cuts.",
+  "source": "outputs/stills/wall/D02_s2026101206.png",
+  "loop": "outputs/video/loops/D02_diamond_prisms.mp4",
+  "prores": "outputs/video/prores/D02_diamond_prisms.mov",
+  "dimensions": [
+    1248,
+    540
+  ],
+  "fps": 30,
+  "frames": 240,
+  "duration_seconds": 8.0,
+  "processing": "Wan 2.2 first/last frame, 81 frames at 16 fps; crop 2 px top/bottom; optical-flow interpolation to 60 fps; cosine time remap forward then reverse over one 8-second cycle, delivered at 30 fps. Eased reversals avoid a hard cut or a tail-to-head dissolve. ProRes LT master and all-intra H.264 delivery."
+}

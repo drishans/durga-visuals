@@ -1,5 +1,29 @@
 [
   {
+    "file": "D02_diamond_prisms.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 0.962,
+    "maximum_frame_delta": 1.174,
+    "wrap_delta": 0.709
+  },
+  {
+    "file": "D03_gold_frequency.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 3.527,
+    "maximum_frame_delta": 7.676,
+    "wrap_delta": 0.328
+  },
+  {
+    "file": "D04_gold_cavern.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 3.964,
+    "maximum_frame_delta": 18.061,
+    "wrap_delta": 0.464
+  },
+  {
     "file": "FX_D03_gold_wave.mp4",
     "frames": 240,
     "duration": "8.000000",
@@ -24,11 +48,43 @@
     "wrap_delta": 0.409
   },
   {
+    "file": "O02_gold_dust.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 0.464,
+    "maximum_frame_delta": 0.623,
+    "wrap_delta": 0.386
+  },
+  {
     "file": "P01_liquid_gold.mp4",
     "frames": 240,
     "duration": "8.000000",
     "mean_frame_delta": 2.29,
     "maximum_frame_delta": 4.356,
     "wrap_delta": 0.27
+  },
+  {
+    "file": "P02_diamond_fringe.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 0.458,
+    "maximum_frame_delta": 0.925,
+    "wrap_delta": 0.327
+  },
+  {
+    "file": "P03_cuban_chains.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 5.885,
+    "maximum_frame_delta": 10.585,
+    "wrap_delta": 0.392
+  },
+  {
+    "file": "P05_vermilion_silk.mp4",
+    "frames": 240,
+    "duration": "8.000000",
+    "mean_frame_delta": 0.611,
+    "maximum_frame_delta": 1.205,
+    "wrap_delta": 0.288
   }
 ]

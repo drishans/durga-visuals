@@ -50,4 +50,3 @@ void main() {
     vec3 color = mix(background, gold*exposure, metal);
     gl_FragColor = vec4(clamp(color,0.0,1.0), 1.0);
 }
-

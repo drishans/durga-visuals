@@ -28,4 +28,3 @@ void main() {
     vec2 warped = uv + amount * wave * envelope / RENDERSIZE;
     gl_FragColor = IMG_NORM_PIXEL(inputImage, mirrorUV(warped));
 }
-

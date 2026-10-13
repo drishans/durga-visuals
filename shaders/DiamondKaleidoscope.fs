@@ -28,4 +28,3 @@ void main() {
     vec2 sampleUV = vec2(cos(angle),sin(angle))*radius/aspect + 0.5;
     gl_FragColor = IMG_NORM_PIXEL(inputImage, mirrorUV(sampleUV));
 }
-

@@ -1,0 +1,16 @@
+{
+  "name": "O02_gold_dust",
+  "seed": 2026101257,
+  "motion_prompt": "Fixed camera. A sparse stream of fine gold particles flows smoothly in a broad curved current against deep black, drifting in a slow continuous looping eddy. Particles remain small points of warm light with gentle depth and soft glints, never becoming smoke or thick clouds. The open black space stays clean. Graceful restrained motion suitable for a Screen-blend overlay, no bright bursts, no flashes, no camera movement, no cuts.",
+  "source": "outputs/stills/wall/O02_s2026101211.png",
+  "loop": "outputs/video/loops/O02_gold_dust.mp4",
+  "prores": "outputs/video/prores/O02_gold_dust.mov",
+  "dimensions": [
+    1248,
+    540
+  ],
+  "fps": 30,
+  "frames": 240,
+  "duration_seconds": 8.0,
+  "processing": "Wan 2.2 first/last frame, 81 frames at 16 fps; crop 2 px top/bottom; optical-flow interpolation to 60 fps; cosine time remap forward then reverse over one 8-second cycle, delivered at 30 fps. Eased reversals avoid a hard cut or a tail-to-head dissolve. ProRes LT master and all-intra H.264 delivery."
+}

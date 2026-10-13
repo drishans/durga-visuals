@@ -6,6 +6,8 @@ Golden glamour and contemporary bling for a three-night Durga event. Generate on
 
 ## Start here
 
+- **Current direction: live GLSL through Resolume Wire.** Start with the [first-patch walkthrough](shaders/README.md). Use the stills as textures; the completed video collection is optional.
+- [Browse the collection](outputs/index.html): 15 still concepts and 11 finished loops. Open this file locally to review them.
 - [Wall stills](outputs/stills/wall/) and [1664 x 720 masters](outputs/stills/master/).
 - [Looping MP4 clips](outputs/video/loops/) and [motion prompts](outputs/golden-glamour-motion-prompts.json).
 - [Still prompts](outputs/golden-glamour-prompts.md), [render settings and seeds](outputs/catalog/), and [video processing records](outputs/video/catalog/).
@@ -62,4 +64,3 @@ Use a **1248 x 540** composition. Start with liquid gold or vermilion silk behin
 The MP4s have no audio and use all-intra H.264. Local ProRes LT copies are available for conversion to DXV in [Resolume Alley](https://resolume.com/software/alley). Repeating a delivered loop uses normal forward looping; avoid an extra clip crossfade that would change its timing. Try slow playback and gentle effects first. Use normal forward looping on the delivered files: reversal, where used, is already baked in. These short cycles are reusable building blocks, not a finished three-night show.
 
 Black overlay plates are RGB, not transparent: use Screen/Add and adjust opacity. Confirm readability and brightness on the actual wall. Existing Durga/Sindoor Khela imagery remains on last year's USB and is not included here. Live camera interaction is a separate later experiment.
-

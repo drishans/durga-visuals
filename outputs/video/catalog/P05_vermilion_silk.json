@@ -1,0 +1,16 @@
+{
+  "name": "P05_vermilion_silk",
+  "seed": 2026101252,
+  "motion_prompt": "Fixed wide camera. Rich vermilion satin and broad gold ribbons billow slowly along the lower edges of the composition, like luxurious heavy fabric breathing in a gentle breeze. Smooth waves pass through the folds and gradually settle back into the original arrangement. Gold reflections slide softly across the ribbons. The center stays spacious and dark red. Graceful continuous motion for a live performance backdrop, consistent lighting, no cuts, no camera movement.",
+  "source": "outputs/stills/wall/P05_s2026101204.png",
+  "loop": "outputs/video/loops/P05_vermilion_silk.mp4",
+  "prores": "outputs/video/prores/P05_vermilion_silk.mov",
+  "dimensions": [
+    1248,
+    540
+  ],
+  "fps": 30,
+  "frames": 240,
+  "duration_seconds": 8.0,
+  "processing": "Wan 2.2 first/last frame, 81 frames at 16 fps; crop 2 px top/bottom; optical-flow interpolation to 60 fps; cosine time remap forward then reverse over one 8-second cycle, delivered at 30 fps. Eased reversals avoid a hard cut or a tail-to-head dissolve. ProRes LT master and all-intra H.264 delivery."
+}

@@ -10,22 +10,47 @@ These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declarat
 
 ![Live flow effect](../outputs/previews/shader-golden-flow.jpg)
 
-## Free Mac route: ISF Editor + Syphon
+## Your first patch in Wire
 
-1. Install the free [Desktop ISF Editor](https://isf.vidvox.net/desktop-editor/) on the show Mac and open one of the `.fs` files.
-2. Set the output to **1248 x 540**. For GoldenFlow or DiamondKaleidoscope, choose a still, movie, or compatible camera as the input. LiquidGold generates its own image.
-3. Publish the editor's output through Syphon. In Resolume, open **Sources**, locate the editor's Syphon stream, and drag it into a clip slot.
-4. Keep both applications running on that Mac. Adjust shader parameters in ISF Editor; use Resolume for mixing and additional effects.
+You own Wire, so use its native integration. Start with **LiquidGold**, which requires only two rendering nodes and no media input.
 
-The editor supports shader editing, media/camera inputs, and Syphon output. Syphon passes textures between applications on the **same Mac**; it does not send the Windows PC's GPU output to the venue. See [ISF Editor features](https://isf.vidvox.net/desktop-editor/) and [Resolume Syphon instructions](https://www.resolume.com/support/syphonspout). This route still needs a test on the actual Mac and Resolume installation.
+1. Create a new patch. Set its category to **Source** in the Patch panel, and its working resolution to **1248 x 540**.
+2. Add an **ISF** node. Select it, then choose **Attributes > Fragment Shader > Browse** and load `LiquidGold.fs`.
+3. Connect the ISF texture output to a **Texture Out** node. The output should now show animated gold folds.
+4. Add **Float In** nodes and connect them to `folds`, `clearCenter`, `exposure`, and `loopSeconds`. Rename them Fold scale, Open center, Brightness, and Cycle. Copy the defaults and ranges from the shader's JSON header. This makes them sliders in Resolume. Leave `animate` true and `phase` at zero initially.
+5. Save as **Durga Liquid Gold**. In Avenue/Arena, find the saved source and drag it into a clip slot. Use a 1248 x 540 composition. Adjust the sliders while it plays.
+6. For editing, use **View > Layout > Shader Editing** in Wire. Change the shader there, check the output, and save. Keep your edited `.fs` source in this repository too.
 
-## Native effect route: Resolume Wire
+The `.fs` file contains the shader; Wire supplies the patch, texture output, and Resolume controls. These steps follow the official [ISF loading guide](https://resolume.com/support/en/isf) and [Wire integration guide](https://resolume.com/support/en/wire-resolume-integration).
 
-For an effect, connect **Texture In -> ISF -> Texture Out**. In the ISF node's **Fragment Shader** attribute, browse to GoldenFlow or DiamondKaleidoscope. For LiquidGold, use **ISF -> Texture Out** and no Texture In. The `.fs` file is shader source, not a compiled Resolume plug-in. [ISF loading guide](https://resolume.com/support/en/isf)
+For **GoldenFlow** or **DiamondKaleidoscope**, create a patch in category **Effect** with this graph:
 
-Set the patch category to **Effect** or **Source**, respectively. Add Float In / Bool In nodes to the shader parameters you want exposed in Resolume. Save the patch; it then appears in the appropriate Resolume category. Follow the incoming texture's resolution for effects. [Wire integration](https://resolume.com/support/en/wire-resolume-integration)
+```text
+Texture In ----------> ISF ----------> Texture Out
+                       ^
+Float In / Bool In ----+  (one connection per exposed parameter)
+```
+
+Load the corresponding `.fs` into the ISF node. Connect Texture In to `inputImage`; let texture nodes follow Patch resolution. Save, then apply the effect to a still-image clip in Resolume. GoldenFlow is a good first effect: expose `amount`, `detail`, and `loopSeconds`. Leave unconnected shader inputs at their defaults.
+
+## Starting looks
+
+These are suggested settings to dial in, not compiled Wire presets. Keep Auto animate on and Phase at zero.
+
+| Use | Shader / texture | Settings |
+| --- | --- | --- |
+| Quiet performance background | LiquidGold | folds 0.9, clearCenter 0.55, polish 0.6, exposure 0.8, loopSeconds 24 |
+| Flowing silk | GoldenFlow / P05 vermilion still | amount 14, detail 0.8, loopSeconds 16 |
+| Gold waveform | GoldenFlow / D03 waveform still | amount 28, detail 1.2, loopSeconds 8 |
+| Diamond DJ pattern | DiamondKaleidoscope / D02 prism still | segments 6, zoom 1.15, breath 0.06, loopSeconds 16 |
+
+The generated stills retain their photographic detail under the effects. LiquidGold instead synthesizes every pixel. Texture displacement does not reconstruct 3D geometry, so use modest flow for recognizable chains and diamonds.
+
+## Saving for the show
 
 For portable handoff, consolidate the resources and compile an editable `.wired` patch using a suitably licensed Wire installation. A compiled patch can run in compatible Avenue/Arena without the recipient owning Wire. Check the patch's minimum host version. This repository contains shader sources, not precompiled Wire patches. [Saving and compiling](https://resolume.com/support/en/wire-saving-consolidating) · [Compatibility](https://resolume.com/support/en/patch-compatibility)
+
+Test on the M1 Max with the intended composition and layer count. Wire can also export a patch through **Patch > Export as Video** when it has a Texture Out node. Keep rendered backups of favorite looks for the show. [Video export](https://resolume.com/support/en/wire-saving-consolidating)
 
 ## Timing, audio, and camera
 
@@ -33,6 +58,12 @@ For portable handoff, consolidate the resources and compile an editable `.wired`
 - For beat control, switch Auto animate off and drive Phase from 0 to 1 in the host. Keep the cycle duration fixed during a take to avoid jumping the clock's phase.
 - For audio response, modulate Flow or Brightness gently. Wire's Spectrum input and Falloff can provide a smoothed envelope. Avoid mapping noisy FFT directly to Phase. [Wire FFT inputs](https://resolume.com/support/en/wire-resolume-integration)
 - The texture effects can process a camera feed, but capture hardware, latency, silhouettes, and trails are not configured by these shaders. Neither effect uses a persistent feedback buffer.
+
+For your own code, build animation from `sin(2*pi*phase)` and `cos(2*pi*phase)`, with integer temporal harmonics. For evolving noise, sample a circular path such as `noise(vec3(uv, 0) + vec3(cos(t), sin(t), 0))`. Simply wrapping arbitrary linear motion with `fract` does not make it visually continuous. All current shaders use periodic functions across the wrap. Fixed-input loop closure also requires fixed parameter values.
+
+## Optional Mac routing without a Wire patch
+
+The free [Desktop ISF Editor](https://isf.vidvox.net/desktop-editor/) can open these shaders and publish through Syphon. Select its stream under Resolume Sources and drag it into a clip. Both apps run on the same Mac. This is an optional experimentation route; Wire is the primary setup for this project. [Syphon instructions](https://www.resolume.com/support/syphonspout)
 
 ## Preview and validation
 

@@ -1,0 +1,16 @@
+{
+  "name": "P02_diamond_fringe",
+  "seed": 2026101256,
+  "motion_prompt": "Static panoramic camera on a sparse fringe of suspended brilliant-cut diamonds. The hanging stones gently sway and rotate by small angles in a slow repeating cycle. Soft warm reflections glide across their facets with tiny restrained glints. The central and lower black area remains still and empty. Sophisticated high-jewelry campaign lighting, stable exposure, physically coherent pendulum motion, no flashing, no additional objects or camera movement.",
+  "source": "outputs/stills/wall/P02_s2026101201.png",
+  "loop": "outputs/video/loops/P02_diamond_fringe.mp4",
+  "prores": "outputs/video/prores/P02_diamond_fringe.mov",
+  "dimensions": [
+    1248,
+    540
+  ],
+  "fps": 30,
+  "frames": 240,
+  "duration_seconds": 8.0,
+  "processing": "Wan 2.2 first/last frame, 81 frames at 16 fps; crop 2 px top/bottom; optical-flow interpolation to 60 fps; cosine time remap forward then reverse over one 8-second cycle, delivered at 30 fps. Eased reversals avoid a hard cut or a tail-to-head dissolve. ProRes LT master and all-intra H.264 delivery."
+}

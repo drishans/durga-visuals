@@ -1,0 +1,16 @@
+{
+  "name": "D04_gold_cavern",
+  "seed": 2026101253,
+  "motion_prompt": "Stationary camera inside an abstract faceted black-and-gold crystalline tunnel. Broad reflected bands of warm light travel gently along the gold planes toward the center and circulate back in a continuous cycle. The rigid geometric facets remain sharp and stable. A subtle slow breathing rotation of the reflected light gives a hypnotic sense of depth without moving the camera. Bold reflective gold, deep black shadows, controlled highlights, continuous shot, no flicker or sudden flashes.",
+  "source": "outputs/stills/wall/D04_s2026101208.png",
+  "loop": "outputs/video/loops/D04_gold_cavern.mp4",
+  "prores": "outputs/video/prores/D04_gold_cavern.mov",
+  "dimensions": [
+    1248,
+    540
+  ],
+  "fps": 30,
+  "frames": 240,
+  "duration_seconds": 8.0,
+  "processing": "Wan 2.2 first/last frame, 81 frames at 16 fps; crop 2 px top/bottom; optical-flow interpolation to 60 fps; cosine time remap forward then reverse over one 8-second cycle, delivered at 30 fps. Eased reversals avoid a hard cut or a tail-to-head dissolve. ProRes LT master and all-intra H.264 delivery."
+}
