@@ -1,0 +1,386 @@
+{
+  "id": "E04",
+  "title": "Masked bell correction",
+  "model": "qwen-detail",
+  "seed": 2026101602,
+  "steps": 40,
+  "seconds": 93.63,
+  "positive": "Edit only the lowest outstretched hand holding the small brass bell. Remove the extra green leaf and the long green stalk crossing this lower hand. The lower hand should clearly hold only the small brass handbell by its narrow metal handle, with naturally curled fingers and a coherent wrist. Keep the bell the same size and position, hanging downward. The separate hand above still holds its pink lotus flower on a short stem. Preserve that upper hand and flower unchanged. The background behind the removed leaf and stalk is the same dark smooth background. Keep all arms, jewelry, skin, red clothing, gold throne and lighting unchanged. No new objects or additional hands.",
+  "negative": "",
+  "source": "Ma/stills/qwen-detail_hands_s2026101601_40steps/master.png",
+  "mask_bounds": [
+    1128,
+    382,
+    154,
+    196
+  ],
+  "status": "unreviewed",
+  "api": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "qwen_image_edit_2511_fp8mixed.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "Qwen-Image-Edit-2511 FP8 mixed"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "2. Qwen-Image text encoder"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "qwen_image_vae.safetensors"
+      },
+      "_meta": {
+        "title": "3. Matching VAE"
+      }
+    },
+    "4": {
+      "class_type": "ModelSamplingAuraFlow",
+      "inputs": {
+        "shift": 3.1,
+        "sampling": "flow",
+        "model": [
+          "1",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Flow sampling - Qwen shift 3.1"
+      }
+    },
+    "5": {
+      "class_type": "TextEncodeQwenImageEditPlus",
+      "inputs": {
+        "clip": [
+          "2",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "image1": [
+          "19",
+          0
+        ],
+        "prompt": "Edit only the lowest outstretched hand holding the small brass bell. Remove the extra green leaf and the long green stalk crossing this lower hand. The lower hand should clearly hold only the small brass handbell by its narrow metal handle, with naturally curled fingers and a coherent wrist. Keep the bell the same size and position, hanging downward. The separate hand above still holds its pink lotus flower on a short stem. Preserve that upper hand and flower unchanged. The background behind the removed leaf and stalk is the same dark smooth background. Keep all arms, jewelry, skin, red clothing, gold throne and lighting unchanged. No new objects or additional hands."
+      },
+      "_meta": {
+        "title": "Edit instructions"
+      }
+    },
+    "6": {
+      "class_type": "TextEncodeQwenImageEditPlus",
+      "inputs": {
+        "clip": [
+          "2",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ],
+        "image1": [
+          "19",
+          0
+        ],
+        "prompt": ""
+      },
+      "_meta": {
+        "title": "Negative edit conditioning"
+      }
+    },
+    "7": {
+      "class_type": "VAEEncode",
+      "inputs": {
+        "pixels": [
+          "19",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Reference image to latent"
+      }
+    },
+    "8": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 2026101602,
+        "steps": 40,
+        "cfg": 4,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1,
+        "model": [
+          "15",
+          0
+        ],
+        "positive": [
+          "16",
+          0
+        ],
+        "negative": [
+          "17",
+          0
+        ],
+        "latent_image": [
+          "7",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Generate - qwen-image"
+      }
+    },
+    "9": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "8",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Latents to pixels"
+      }
+    },
+    "10": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/qwen-detail_bell_s2026101602_40steps/master",
+        "images": [
+          "21",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "MASTER - 1664 x 720"
+      }
+    },
+    "11": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "upscale_method": "lanczos",
+        "width": 1248,
+        "height": 540,
+        "crop": "disabled",
+        "image": [
+          "21",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Resize to LED wall - 1248 x 540"
+      }
+    },
+    "12": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/qwen-detail_bell_s2026101602_40steps/wall",
+        "images": [
+          "11",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "WALL - 1248 x 540"
+      }
+    },
+    "14": {
+      "class_type": "LoadImage",
+      "inputs": {
+        "image": "ma_qwen-detail_hands_s2026101601_40steps.png"
+      },
+      "_meta": {
+        "title": "Reference - choose the original candidate"
+      }
+    },
+    "15": {
+      "class_type": "CFGNorm",
+      "inputs": {
+        "model": [
+          "4",
+          0
+        ],
+        "strength": 1.0
+      },
+      "_meta": {
+        "title": "Qwen guidance normalization"
+      }
+    },
+    "16": {
+      "class_type": "FluxKontextMultiReferenceLatentMethod",
+      "inputs": {
+        "conditioning": [
+          "5",
+          0
+        ],
+        "reference_latents_method": "index_timestep_zero"
+      },
+      "_meta": {
+        "title": "Reference conditioning"
+      }
+    },
+    "17": {
+      "class_type": "FluxKontextMultiReferenceLatentMethod",
+      "inputs": {
+        "conditioning": [
+          "6",
+          0
+        ],
+        "reference_latents_method": "index_timestep_zero"
+      },
+      "_meta": {
+        "title": "Reference conditioning"
+      }
+    },
+    "18": {
+      "class_type": "ImageCrop",
+      "inputs": {
+        "image": [
+          "14",
+          0
+        ],
+        "width": 320,
+        "height": 320,
+        "x": 1056,
+        "y": 320
+      },
+      "_meta": {
+        "title": "1. Crop detail context"
+      }
+    },
+    "19": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "image": [
+          "18",
+          0
+        ],
+        "upscale_method": "lanczos",
+        "width": 1024,
+        "height": 1024,
+        "crop": "disabled"
+      },
+      "_meta": {
+        "title": "2. Enlarge detail for the model"
+      }
+    },
+    "20": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "image": [
+          "9",
+          0
+        ],
+        "upscale_method": "lanczos",
+        "width": 320,
+        "height": 320,
+        "crop": "disabled"
+      },
+      "_meta": {
+        "title": "3. Return edit to original size"
+      }
+    },
+    "22": {
+      "class_type": "SolidMask",
+      "inputs": {
+        "value": 0,
+        "width": 320,
+        "height": 320
+      },
+      "_meta": {
+        "title": "Context mask - black"
+      }
+    },
+    "23": {
+      "class_type": "SolidMask",
+      "inputs": {
+        "value": 1,
+        "width": 154,
+        "height": 196
+      },
+      "_meta": {
+        "title": "Editable rectangle - white"
+      }
+    },
+    "24": {
+      "class_type": "FeatherMask",
+      "inputs": {
+        "mask": [
+          "23",
+          0
+        ],
+        "left": 12,
+        "top": 12,
+        "right": 12,
+        "bottom": 12
+      },
+      "_meta": {
+        "title": "Soft edges for the correction"
+      }
+    },
+    "25": {
+      "class_type": "MaskComposite",
+      "inputs": {
+        "destination": [
+          "22",
+          0
+        ],
+        "source": [
+          "24",
+          0
+        ],
+        "x": 72,
+        "y": 62,
+        "operation": "add"
+      },
+      "_meta": {
+        "title": "Place edit mask inside context"
+      }
+    },
+    "21": {
+      "class_type": "ImageCompositeMasked",
+      "inputs": {
+        "destination": [
+          "14",
+          0
+        ],
+        "source": [
+          "20",
+          0
+        ],
+        "x": 1056,
+        "y": 320,
+        "resize_source": false,
+        "mask": [
+          "25",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "4. Preserve every pixel outside the mask"
+      }
+    }
+  }
+}

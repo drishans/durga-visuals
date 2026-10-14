@@ -1,0 +1,182 @@
+{
+  "id": "M01",
+  "title": "Luminous Devotional Painting",
+  "positive": "A luminous devotional painting of the goddess Durga in the Bengali tradition, a serene and exceptionally beautiful frontal portrait centered in a wide panoramic frame. She stands calm and upright, her full figure filling the frame vertically from just above the tip of her golden crown down to her feet, with a small clear margin above the crown. Her face is large, gentle and finely detailed: two matching natural almond eyes with dark irises looking softly toward the viewer, both eyes level and symmetrical, and a small vertical third eye painted in the center of her forehead, clearly separate from the two natural eyes. Soft closed smile, small gold nose ring. She wears deep red silk with fine gold zari borders, opulent gold temple jewelry, layered necklaces, earrings, armlets and bangles with restrained diamond accents. A radiant gold halo glows behind her head. Ten arms, five rising from each shoulder region, fan outward in a clean symmetrical arc, each arm with a natural elbow, wrist and graceful hand gripping exactly one distinct object held clearly in view: trident, sword, discus, conch, bow, arrow, bell, axe, shield, coiled noose. A single calm golden lion with healthy, realistic proportions rests at her feet, its two matching eyes gazing forward. The background is deep velvety darkness with wide empty space on the left and right. Soft warm glow, rich mineral pigments, fine brushwork, peaceful devotional serenity.",
+  "negative": "arms branching from elbows or forearms, arms growing from waist or back, fused arms, disconnected floating arms, detached hands, empty hands, two objects in one hand, objects hidden behind hands, duplicated weapons, malformed fingers, fused fingers, twisted wrists, crossed eyes, wall-eyed, asymmetrical eyes, blank white eyes, glowing eyes, third eye merged into eyebrows, cross-eyed lion, mismatched lion eyes, multiple lions, cartoon lion, emaciated lion, demon, buffalo, blood, battle scene, gore, cleavage, low neckline, fashion photography, streetwear, rapper chains, sunglasses, palace interior, cluttered background, pillars, text, letters, watermark, logo, cropped crown, cut off head, blurry face, oversaturated, plastic skin",
+  "seed": 2026101300,
+  "steps": 40,
+  "model": "z-image",
+  "seconds": 33.16,
+  "status": "unreviewed",
+  "api": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "z_image_bf16.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "1. Full Z-Image model"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_3_4b.safetensors",
+        "type": "lumina2",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "2. Qwen text encoder (lumina2)"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "ae.safetensors"
+      },
+      "_meta": {
+        "title": "3. Matching VAE"
+      }
+    },
+    "4": {
+      "class_type": "ModelSamplingAuraFlow",
+      "inputs": {
+        "shift": 3,
+        "sampling": "flow",
+        "model": [
+          "1",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Flow sampling - keep shift 3"
+      }
+    },
+    "5": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "A luminous devotional painting of the goddess Durga in the Bengali tradition, a serene and exceptionally beautiful frontal portrait centered in a wide panoramic frame. She stands calm and upright, her full figure filling the frame vertically from just above the tip of her golden crown down to her feet, with a small clear margin above the crown. Her face is large, gentle and finely detailed: two matching natural almond eyes with dark irises looking softly toward the viewer, both eyes level and symmetrical, and a small vertical third eye painted in the center of her forehead, clearly separate from the two natural eyes. Soft closed smile, small gold nose ring. She wears deep red silk with fine gold zari borders, opulent gold temple jewelry, layered necklaces, earrings, armlets and bangles with restrained diamond accents. A radiant gold halo glows behind her head. Ten arms, five rising from each shoulder region, fan outward in a clean symmetrical arc, each arm with a natural elbow, wrist and graceful hand gripping exactly one distinct object held clearly in view: trident, sword, discus, conch, bow, arrow, bell, axe, shield, coiled noose. A single calm golden lion with healthy, realistic proportions rests at her feet, its two matching eyes gazing forward. The background is deep velvety darkness with wide empty space on the left and right. Soft warm glow, rich mineral pigments, fine brushwork, peaceful devotional serenity.",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Positive prompt - Ma Durga / M01"
+      }
+    },
+    "6": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "arms branching from elbows or forearms, arms growing from waist or back, fused arms, disconnected floating arms, detached hands, empty hands, two objects in one hand, objects hidden behind hands, duplicated weapons, malformed fingers, fused fingers, twisted wrists, crossed eyes, wall-eyed, asymmetrical eyes, blank white eyes, glowing eyes, third eye merged into eyebrows, cross-eyed lion, mismatched lion eyes, multiple lions, cartoon lion, emaciated lion, demon, buffalo, blood, battle scene, gore, cleavage, low neckline, fashion photography, streetwear, rapper chains, sunglasses, palace interior, cluttered background, pillars, text, letters, watermark, logo, cropped crown, cut off head, blurry face, oversaturated, plastic skin",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Negative prompt"
+      }
+    },
+    "7": {
+      "class_type": "EmptySD3LatentImage",
+      "inputs": {
+        "width": 1664,
+        "height": 720,
+        "batch_size": 1
+      },
+      "_meta": {
+        "title": "Canvas - exact wall aspect 104:45"
+      }
+    },
+    "8": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 2026101300,
+        "steps": 40,
+        "cfg": 4,
+        "sampler_name": "res_multistep",
+        "scheduler": "simple",
+        "denoise": 1,
+        "model": [
+          "4",
+          0
+        ],
+        "positive": [
+          "5",
+          0
+        ],
+        "negative": [
+          "6",
+          0
+        ],
+        "latent_image": [
+          "7",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Generate - z-image"
+      }
+    },
+    "9": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "8",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Latents to pixels"
+      }
+    },
+    "10": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/z-image_M01_s2026101300_40steps/master",
+        "images": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "MASTER - 1664 x 720"
+      }
+    },
+    "11": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "upscale_method": "lanczos",
+        "width": 1248,
+        "height": 540,
+        "crop": "disabled",
+        "image": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Resize to LED wall - 1248 x 540"
+      }
+    },
+    "12": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/z-image_M01_s2026101300_40steps/wall",
+        "images": [
+          "11",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "WALL - 1248 x 540"
+      }
+    }
+  }
+}

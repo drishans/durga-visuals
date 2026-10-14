@@ -1,6 +1,6 @@
 # GLSL into Resolume
 
-These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declaration. They use no external textures except the source image for the two effects.
+These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declaration. They use no external textures except the source image for the three effects.
 
 | File | Role | Good starting point |
 | --- | --- | --- |
@@ -10,10 +10,19 @@ These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declarat
 | [GoldDust.fs](GoldDust.fs) | Procedural source | Sparse drifting glitter; use Screen/Add as a quiet accent |
 | [GoldRibbons.fs](GoldRibbons.fs) | Procedural source | Twisting metallic ribbons framing performers |
 | [PrismField.fs](PrismField.fs) | Procedural source | Moving faceted reflections for DJ material |
+| [PrismaticTitle.fs](PrismaticTitle.fs) | Transparent title effect | Colorful chrome and apparent extrusion for all three DJ names |
 
-All six are in the local preview. [Additional source settings and validation](NEW-SHADERS.md) cover the three new procedural looks. Their output is opaque RGB; black becomes a transparent-looking accent only through the chosen blend mode.
+All seven are in the local preview. [Additional source settings and validation](NEW-SHADERS.md) cover the three new procedural looks. The procedural sources output opaque RGB; black becomes a transparent-looking accent only through the chosen blend mode.
 
 ![Live flow effect](../outputs/previews/shader-golden-flow.jpg)
+
+## Colorful DJ titles
+
+Open [the title preview](http://127.0.0.1:8970/shaders/preview/?shader=PrismaticTitle), then choose DJ Edwin, DJ Mumbai Rani, or DJ Dinu from Source image. This is a 2.5D shader, not a generated mesh: it takes the existing title PNG's alpha, recolors its front face and adds moving apparent depth. Spelling stays exact. Original gold PNGs remain available.
+
+In Wire, use category **Effect** and `Texture In -> ISF (PrismaticTitle.fs) -> Texture Out`. Apply to a title PNG clip from `outputs/dj-titles/`, above the background, using normal alpha compositing. Output is straight alpha. Expose Depth, Color offset, Chrome shine and Cycle. Try color offsets 0.00, 0.33 and 0.66 to distinguish the DJs. Keep depth around 12-24 pixels and avoid cropping the title before the effect.
+
+The title shader compiled in the browser and all three names passed the default phase 0/1 comparison at 0/255 difference. The longest name fits with extrusion. Native Wire compilation, blending and Mac performance still need testing. Use Wire's video export for a backup after choosing colors.
 
 ## Your first patch in Wire
 
@@ -28,7 +37,7 @@ You own Wire, so use its native integration. Start with **LiquidGold**, which re
 
 The `.fs` file contains the shader; Wire supplies the patch, texture output, and Resolume controls. These steps follow the official [ISF loading guide](https://resolume.com/support/en/isf) and [Wire integration guide](https://resolume.com/support/en/wire-resolume-integration).
 
-For **GoldenFlow** or **DiamondKaleidoscope**, create a patch in category **Effect** with this graph:
+For **GoldenFlow**, **DiamondKaleidoscope** or **PrismaticTitle**, create a patch in category **Effect** with this graph:
 
 ```text
 Texture In ----------> ISF ----------> Texture Out
@@ -74,4 +83,4 @@ The free [Desktop ISF Editor](https://isf.vidvox.net/desktop-editor/) can open t
 
 From the repository root, run `python -m http.server 8970 --bind 127.0.0.1`, then open [the preview](http://127.0.0.1:8970/shaders/preview/). It uses the same `.fs` sources with a WebGL 2 wrapper and runs locally. If using ComfyUI portable Python, add `-s` before `-m`.
 
-All six shaders compiled and rendered in the browser preview; each matched the phase 0/1 comparison with a maximum endpoint difference of **0/255** at default controls. **Check cycle** also compares the frame just before the wrap with phase zero and reports several ordinary frame changes for context. Endpoint equality alone cannot prove a smooth loop; inspect the motion too. This checks WebGL rendering, not native Wire compilation or show-Mac performance. Wire playback remains to be checked on the Mac. Refresh the page after editing a shader file.
+All seven shaders compiled and rendered in the browser preview; each matched the phase 0/1 comparison with a maximum endpoint difference of **0/255** at default controls. **Check cycle** also compares the frame just before the wrap with phase zero and reports several ordinary frame changes for context. Endpoint equality alone cannot prove a smooth loop; inspect the motion too. This checks WebGL rendering, not native Wire compilation or show-Mac performance. Wire playback remains to be checked on the Mac. Refresh the page after editing a shader file.

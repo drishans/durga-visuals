@@ -4,6 +4,13 @@ const status = document.querySelector('#status');
 const error = document.querySelector('#error');
 const shaderSelect = document.querySelector('#shader');
 const textureSelect = document.querySelector('#texture');
+shaderSelect.add(new Option('Prismatic title / effect','PrismaticTitle'));
+for (const [id,name] of [['edwin','DJ Edwin'],['mumbai-rani','DJ Mumbai Rani'],['dinu','DJ Dinu']]) {
+  textureSelect.add(new Option(name,`../../dj-titles/dj-${id}.png`));
+}
+const requestedShader = new URLSearchParams(location.search).get('shader');
+if ([...shaderSelect.options].some(o=>o.value===requestedShader)) shaderSelect.value=requestedShader;
+if (shaderSelect.value==='PrismaticTitle') textureSelect.value='../../dj-titles/dj-edwin.png';
 let program, metadata, values = {}, uniforms = {}, running = true, time = 0, last = performance.now(), lastDraw = 0, loadVersion = 0;
 
 function compile(type, source) {
@@ -60,6 +67,9 @@ function draw(overrides={}) {
     else if(input.TYPE==='bool')gl.uniform1i(uniforms[input.NAME],value?1:0);
     else gl.uniform1f(uniforms[input.NAME],value);
   }
+  // Match straight-alpha compositing on a black stage, including title edges.
+  gl.clearColor(0,0,0,1);gl.clear(gl.COLOR_BUFFER_BIT);
+  gl.enable(gl.BLEND);gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
   gl.drawArrays(gl.TRIANGLES,0,6);
 }
 
@@ -82,7 +92,13 @@ const texture=gl.createTexture();gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl
 for(const axis of [gl.TEXTURE_WRAP_S,gl.TEXTURE_WRAP_T])gl.texParameteri(gl.TEXTURE_2D,axis,gl.CLAMP_TO_EDGE);
 gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
 await setTexture(`../../outputs/stills/wall/${textureSelect.value}`);await loadShader();
-shaderSelect.addEventListener('change',loadShader);
+shaderSelect.addEventListener('change',async()=>{
+  if(shaderSelect.value==='PrismaticTitle'&&!textureSelect.value.includes('dj-titles')){
+    textureSelect.value='../../dj-titles/dj-edwin.png';
+    await setTexture(`../../outputs/stills/wall/${textureSelect.value}`);
+  }
+  await loadShader();
+});
 textureSelect.addEventListener('change',()=>setTexture(`../../outputs/stills/wall/${textureSelect.value}`).catch(e=>error.textContent=e.message));
 document.querySelector('#upload').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;const url=URL.createObjectURL(file);try{await setTexture(url);}catch(e){error.textContent=e.message;}finally{URL.revokeObjectURL(url);}});
 document.querySelector('#pause').addEventListener('click',event=>{running=!running;event.target.textContent=running?'Pause':'Play';});

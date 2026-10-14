@@ -1,0 +1,182 @@
+{
+  "id": "M04",
+  "title": "Seated gold portrait / explicit arm arrangement",
+  "positive": "A magnificent devotional oil painting of Ma Durga seated serenely on a low golden throne, with her noble lion beside her. Centered frontal three-quarter-length portrait in a panoramic 104:45 composition. Exceptionally beautiful Indian face, warm brown skin, calm compassionate expression, gentle closed smile. Her two almond-shaped brown eyes are level and look straight ahead, with matching irises and catchlights. A distinct small vertical third eye on her forehead. Gleaming ornate gold crown completely inside the frame, delicate nose ring, layered gold and diamond jewelry, deep crimson sari with lavish gold zari, green silk blouse, soft circular gold halo. Durga has exactly ten arms in total: one pair of foreground arms and eight other arms behind them, four behind each shoulder. Each separate arm runs continuously from the shoulder region through an elbow to a wrist and a single hand. The five hands on the left side of the IMAGE display, from top to bottom, discus, sword, trident, arrow, coiled noose. The five hands on the right side of the IMAGE display, from top to bottom, conch shell, bow, bell, axe, round shield. Each object is clearly held by one hand. Generous dark space between the arms. Lion rests at lower left, a natural golden lion with a thick mane, two matching amber eyes and normal paws. Rich glowing gold material, fine realistic brushwork, restrained sparkle, dignified sacred beauty. Dark warm background with spacious sides and soft gold light at the base, no lettering.",
+  "negative": "crossed eyes, diverging pupils, mismatched irises, distorted face, melted features, cartoon face, blank eyes, branch points in arms, fused elbows, floating hands, disconnected arms, fused fingers, duplicated objects, unrecognizable weapons, lion with human eyes, malformed lion paws, multiple lions, cropped crown, text, watermark, logo, exaggerated cleavage, sunglasses, neon skin, plastic skin, harsh glare",
+  "seed": 2026101303,
+  "steps": 40,
+  "model": "z-image",
+  "seconds": 30.11,
+  "status": "unreviewed",
+  "api": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "z_image_bf16.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "1. Full Z-Image model"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_3_4b.safetensors",
+        "type": "lumina2",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "2. Qwen text encoder (lumina2)"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "ae.safetensors"
+      },
+      "_meta": {
+        "title": "3. Matching VAE"
+      }
+    },
+    "4": {
+      "class_type": "ModelSamplingAuraFlow",
+      "inputs": {
+        "shift": 3,
+        "sampling": "flow",
+        "model": [
+          "1",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Flow sampling - keep shift 3"
+      }
+    },
+    "5": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "A magnificent devotional oil painting of Ma Durga seated serenely on a low golden throne, with her noble lion beside her. Centered frontal three-quarter-length portrait in a panoramic 104:45 composition. Exceptionally beautiful Indian face, warm brown skin, calm compassionate expression, gentle closed smile. Her two almond-shaped brown eyes are level and look straight ahead, with matching irises and catchlights. A distinct small vertical third eye on her forehead. Gleaming ornate gold crown completely inside the frame, delicate nose ring, layered gold and diamond jewelry, deep crimson sari with lavish gold zari, green silk blouse, soft circular gold halo. Durga has exactly ten arms in total: one pair of foreground arms and eight other arms behind them, four behind each shoulder. Each separate arm runs continuously from the shoulder region through an elbow to a wrist and a single hand. The five hands on the left side of the IMAGE display, from top to bottom, discus, sword, trident, arrow, coiled noose. The five hands on the right side of the IMAGE display, from top to bottom, conch shell, bow, bell, axe, round shield. Each object is clearly held by one hand. Generous dark space between the arms. Lion rests at lower left, a natural golden lion with a thick mane, two matching amber eyes and normal paws. Rich glowing gold material, fine realistic brushwork, restrained sparkle, dignified sacred beauty. Dark warm background with spacious sides and soft gold light at the base, no lettering.",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Positive prompt - Ma Durga / M01"
+      }
+    },
+    "6": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "crossed eyes, diverging pupils, mismatched irises, distorted face, melted features, cartoon face, blank eyes, branch points in arms, fused elbows, floating hands, disconnected arms, fused fingers, duplicated objects, unrecognizable weapons, lion with human eyes, malformed lion paws, multiple lions, cropped crown, text, watermark, logo, exaggerated cleavage, sunglasses, neon skin, plastic skin, harsh glare",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Negative prompt"
+      }
+    },
+    "7": {
+      "class_type": "EmptySD3LatentImage",
+      "inputs": {
+        "width": 1664,
+        "height": 720,
+        "batch_size": 1
+      },
+      "_meta": {
+        "title": "Canvas - exact wall aspect 104:45"
+      }
+    },
+    "8": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 2026101303,
+        "steps": 40,
+        "cfg": 4,
+        "sampler_name": "res_multistep",
+        "scheduler": "simple",
+        "denoise": 1,
+        "model": [
+          "4",
+          0
+        ],
+        "positive": [
+          "5",
+          0
+        ],
+        "negative": [
+          "6",
+          0
+        ],
+        "latent_image": [
+          "7",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Generate - z-image"
+      }
+    },
+    "9": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "8",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Latents to pixels"
+      }
+    },
+    "10": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/z-image_M04_s2026101303_40steps/master",
+        "images": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "MASTER - 1664 x 720"
+      }
+    },
+    "11": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "upscale_method": "lanczos",
+        "width": 1248,
+        "height": 540,
+        "crop": "disabled",
+        "image": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Resize to LED wall - 1248 x 540"
+      }
+    },
+    "12": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/z-image_M04_s2026101303_40steps/wall",
+        "images": [
+          "11",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "WALL - 1248 x 540"
+      }
+    }
+  }
+}

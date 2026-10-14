@@ -1,0 +1,122 @@
+{
+  "z-image_M01_s2026101300_40steps": {
+    "status": "study",
+    "notes": "Clear painted face and a coherent lion, but too many arms for the ten-arm brief. Repeated objects and ambiguous lower hand grips. Not recommended for the show."
+  },
+  "z-image_M02_s2026101301_40steps": {
+    "status": "study",
+    "notes": "Artisan-idol direction, but the arm count and objects do not match the brief. The lion has a toy-like face and uneven-looking eyes. Not recommended."
+  },
+  "z-image_M03_s2026101302_40steps": {
+    "status": "study",
+    "notes": "Rich color, but additional foreground arms, duplicated or ambiguous implements, and a trident touching the top edge. Face is clearer than the old SDXL failures, but the overall anatomy/attributes still fail."
+  },
+  "z-image_M04_s2026101303_40steps": {
+    "status": "study",
+    "notes": "Good lion and clear goddess eyes. Extra foreground gesture and mismatched hand/object layout; ornament at the top is clipped. Keep as a color reference, not a finished depiction."
+  },
+  "z-image_M04_s2026101403_40steps": {
+    "status": "study",
+    "notes": "Pleasant gold palette and a stronger lion. Several hands hold ambiguous or combined objects, the count differs from the intended ten, and the crown margin is too tight. Needs structural repair."
+  },
+  "qwen-image_M01_s2026101300_50steps": {
+    "status": "study",
+    "notes": "A softer, more natural face than the matching Z-Image sample, but three axes, an extra blessing hand, and a horn-like substitute for the conch. Not a lore-accurate finished image."
+  },
+  "qwen-image_M04_s2026101303_50steps": {
+    "status": "study",
+    "notes": "One of the strongest face-and-lion studies so far, with appealing gold jewelry. However, additional lap hands, a horn replacing the conch, and combined arrow/noose prevent recommending it as finished."
+  },
+  "qwen-image_M02_s2026101301_50steps": {
+    "status": "study",
+    "notes": "More coherent ten-arm silhouette and a gentle face, but duplicate axes, a bow spanning two hands, missing requested objects, and a tightly cropped lion. Useful structure reference for targeted edits."
+  },
+  "qwen-image_M02_s2026101401_50steps": {
+    "status": "study",
+    "notes": "Balanced painted eyes, but repeated bells/horn-like objects and extra arms. The lion reads as a sculpture. Not a finished ten-arm depiction."
+  },
+  "qwen-image_M03_s2026101302_50steps": {
+    "status": "study",
+    "notes": "Attractive soft face and gold lighting. Duplicated arrows and axes, additional foreground arms, and an ambiguous conch make the attributes unreliable."
+  },
+  "qwen-image_M03_s2026101402_50steps": {
+    "status": "study",
+    "notes": "Appealing light and a good lion face, but the extra blessing arm and ambiguous hand assignments remain. The forehead mark reads more as a tilak than a distinct third eye."
+  },
+  "qwen-image_M05_s2026101304_50steps": {
+    "status": "study",
+    "notes": "Recognizable conch and clearer jewelry, but extra lap hands and repeated arrows. Crown and objects are clipped. Not recommended."
+  },
+  "qwen-image_M05_s2026101404_50steps": {
+    "status": "study",
+    "notes": "Beautiful face and lion, but crown cut off, multiple objects combined in hands, and unclear left arm roots behind the lion. Keep as a face/color reference."
+  },
+  "qwen-image_M06_s2026101305_50steps": {
+    "status": "study",
+    "notes": "Best starting composition for repair: appealing face, coherent lion and separated rear arms. It actually has ten arms because of added lap hands, despite the eight-arm prompt. Bell/lotus overlap and the forehead mark need correction. Used as the E01 edit reference."
+  },
+  "qwen-image_M06_s2026101405_50steps": {
+    "status": "study",
+    "notes": "Warm smile and strong gold details. Only three distinct left-side hands are clear, with sword/arrow sharing a grip, versus four on the right. Bell and lotus grips overlap. Needs repair."
+  },
+  "qwen-edit_E01_s2026101500_40steps": {
+    "notes": "Rejected broad edit. It introduced a large horizontal forehead eye, moved the lotus and failed to correct the lap hands. The original face/composition is preferable.",
+    "status": "study"
+  },
+  "qwen-edit_E01_s2026101501_40steps": {
+    "notes": "Rejected broad edit. It changed the normal eyes, added an eye to the discus, and altered hand placement. Demonstrates why the detail workflow composites only a small masked region.",
+    "status": "study"
+  },
+  "qwen-image_M07_s2026101306_50steps": {
+    "notes": "My first choice for the close-portrait look: matched-looking natural eyes, gentle expression, strong gold jewelry and clear features at wall size. Crown is cropped and the third-eye mark is highly stylized, so discuss those choices before show use. This composition deliberately excludes hands and lion.",
+    "status": "shortlist"
+  },
+  "qwen-image_M07_s2026101406_50steps": {
+    "notes": "Alternative close portrait with a warmer smile and similar gold detailing. Crown remains cropped and the forehead motif is stylized. Compare the expression with the other M07; neither is a full-body/lion option.",
+    "status": "shortlist"
+  },
+  "qwen-detail_eyes_s2026101600_40steps": {
+    "status": "study",
+    "notes": "Small vertical forehead eye added without changing either natural eye or the rest of the master. Intermediate correction; use the later bell candidate for the completed sequence."
+  },
+  "qwen-detail_hands_s2026101601_40steps": {
+    "status": "study",
+    "notes": "Foreground hands now hold a shield and coiled noose. Face and lion remain unchanged. Intermediate correction; bell/lotus overlap is addressed in the later bell candidate."
+  },
+  "qwen-detail_bell_s2026101602_40steps": {
+    "status": "shortlist",
+    "notes": "My first full-figure choice: beautiful matched-looking natural eyes, a distinct small vertical forehead eye, coherent lion and ten visible arms with separate attributes. Bell grip is now separate from the lotus. The shield partly hides its gripping hand and some arm roots are naturally occluded, so confirm those details at full size. This quiet seated form is an artistic interpretation, not a complete battle tableau."
+  },
+  "qwen-image_M08_s2026101707_50steps": {
+    "status": "study",
+    "notes": "Strong obsidian and gold sculpture concept with clean face and useful empty space. However, the stepped crown became a topknot and the forehead eye became a teardrop. It reads as a broader deity sculpture rather than unambiguously Ma Durga; retain as a material study."
+  },
+  "qwen-image_M09_s2026101708_50steps": {
+    "status": "study",
+    "notes": "Beautiful blue glass material and aligned natural eyes. Crown tips are cropped and the forehead motif is a pink spiral/teardrop, not a distinct eye. Good alternate material study with space on the left."
+  },
+  "qwen-image_M10_s2026101709_50steps": {
+    "status": "shortlist",
+    "notes": "My bold sculptural choice: silver chrome, acid-green orbit and a clean symmetrical face. Strong contrast and ample left-side space. Crown reaches beyond the upper frame and the forehead symbol is stylized, not an anatomical eye. An avant-garde interpretation for discussion."
+  },
+  "qwen-image_M11_s2026101710_50steps": {
+    "status": "shortlist",
+    "notes": "My graphic choice: excellent wall readability, confident vermilion/ultramarine palette and coherent matched eyes. The forehead is a symbolic teardrop and the crown is cropped. Fine linework should be checked for shimmer on the physical LED wall."
+  },
+  "qwen-image_M12_s2026101711_50steps": {
+    "status": "study",
+    "notes": "Coherent emerald-and-marble relief with a complete crown and balanced face. The two lion heads are decorative medallions, not a literal depiction of two mounts. More architectural than trippy; forehead eye became a symbol."
+  },
+  "qwen-image_M13_s2026101712_50steps": {
+    "status": "shortlist",
+    "notes": "My quieter daytime choice: pearl, rose quartz and lavender give a genuinely different light palette. Calm face, coherent three-quarter gaze, full crown and spacious right side. Forehead mark is symbolic; check brightness on the wall so pale details remain visible."
+  },
+  "qwen-image_M14_s2026101713_50steps": {
+    "status": "shortlist",
+    "notes": "My trippy choice: clear beautiful face, matched-looking eyes and a vivid violet cosmic background. Keep the face stable and animate only a separate background/edge layer. Lotus/peacock crown is cropped; the forehead is a decorative motif rather than a distinct eye. Contemporary artistic interpretation."
+  },
+  "qwen-image_M15_s2026101714_50steps": {
+    "status": "shortlist",
+    "notes": "Strong monumental bronze concept: complete crown, coherent sculpted face, turquoise patina and a surreal eclipse landscape. More spacious and subdued than the neon looks. Forehead motif is symbolic; this is a 2D sculpture concept, not an actual mesh or a canonical full-figure depiction."
+  }
+}

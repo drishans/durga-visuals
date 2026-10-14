@@ -6,6 +6,8 @@ Golden glamour and contemporary bling for a three-night Durga event. Generate on
 
 ## Start here
 
+- [Ma Durga image review](Ma/index.html): local Qwen and Z-Image studies, close-review notes, [editable prompts](Ma/prompts.json), and [generation/editing workflows](Ma/README.md). These are separate from the abstract background collection.
+- [Colorful animated DJ titles](shaders/README.md#colorful-dj-titles), [USB reuse notes](MATERIAL-NOTES.md), and [actual 3D options for later](Ma/3D-NEXT.md).
 - [Mac handoff and familiar layer setup](MAC-HANDOFF.md), plus [transparent DJ title layers](outputs/dj-titles/).
 - **Meeting demo:** [15 curated looks](outputs/demo.html), a [90-second silent overview](outputs/meeting-showreel.mp4), and the [meeting guide](MEETING.md). The local `outputs/meeting-demo.zip` bundles everything for the Mac; extract it and open `demo.html`.
 - **Current direction: live GLSL through Resolume Wire.** Start with the [first-patch walkthrough](shaders/README.md). Use the stills as textures; the completed video collection is optional.

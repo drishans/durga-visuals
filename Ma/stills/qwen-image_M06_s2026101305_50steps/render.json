@@ -1,0 +1,182 @@
+{
+  "id": "M06",
+  "title": "Eight-armed peaceful form / alternate iconography",
+  "positive": "An exquisite devotional portrait painting of Ashtabhuja Durga, the eight-armed goddess, seated serenely on a gold throne with a single noble lion beside her. Four arms on each side, EIGHT arms in total, with all eight hands visible and every arm attached to the shoulder region. The four hands at the left of the image hold a trident, discus, sword and arrow. The four hands at the right of the image hold a white spiral conch shell, curved bow, pink lotus and small brass bell. Each hand holds its one object. No additional foreground arms. Her face is exceptionally beautiful, gentle and maternal, luminous warm brown skin, symmetrical almond eyes with matching brown irises looking directly forward, and a small distinct vertical third eye. Closed soft smile, small gold nose ring. Her crown is ornate polished gold with rubies and tiny diamonds. She wears a rich crimson silk sari over a green blouse, layered gold necklaces and fine gold armlets. Warm soft light, gold halo, dark charcoal negative space around the edges. A realistic golden lion with two matching amber eyes and a beautiful mane reclines at the lower left. All of her crown and the lion fit inside the wide panoramic frame. Realistic devotional art, beautiful expressive face, opulent gold shimmer, dignified sacred atmosphere.",
+  "negative": "more than eight hands, fewer than eight hands, additional blessing hand, empty hands, duplicate weapons, branching arms, floating hands, fused fingers, mismatched eyes, crossed eyes, distorted face, human eyes on lion, cartoon lion, text, watermark, clipped crown, obscured face",
+  "seed": 2026101305,
+  "steps": 50,
+  "model": "qwen-image",
+  "seconds": 57.2,
+  "status": "unreviewed",
+  "api": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "qwen_image_2512_fp8_e4m3fn.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "1. Qwen-Image-2512 FP8"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "2. Qwen-Image text encoder"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "qwen_image_vae.safetensors"
+      },
+      "_meta": {
+        "title": "3. Matching VAE"
+      }
+    },
+    "4": {
+      "class_type": "ModelSamplingAuraFlow",
+      "inputs": {
+        "shift": 3.1,
+        "sampling": "flow",
+        "model": [
+          "1",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Flow sampling - Qwen shift 3.1"
+      }
+    },
+    "5": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "An exquisite devotional portrait painting of Ashtabhuja Durga, the eight-armed goddess, seated serenely on a gold throne with a single noble lion beside her. Four arms on each side, EIGHT arms in total, with all eight hands visible and every arm attached to the shoulder region. The four hands at the left of the image hold a trident, discus, sword and arrow. The four hands at the right of the image hold a white spiral conch shell, curved bow, pink lotus and small brass bell. Each hand holds its one object. No additional foreground arms. Her face is exceptionally beautiful, gentle and maternal, luminous warm brown skin, symmetrical almond eyes with matching brown irises looking directly forward, and a small distinct vertical third eye. Closed soft smile, small gold nose ring. Her crown is ornate polished gold with rubies and tiny diamonds. She wears a rich crimson silk sari over a green blouse, layered gold necklaces and fine gold armlets. Warm soft light, gold halo, dark charcoal negative space around the edges. A realistic golden lion with two matching amber eyes and a beautiful mane reclines at the lower left. All of her crown and the lion fit inside the wide panoramic frame. Realistic devotional art, beautiful expressive face, opulent gold shimmer, dignified sacred atmosphere.",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Positive prompt - Ma Durga / M01"
+      }
+    },
+    "6": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "more than eight hands, fewer than eight hands, additional blessing hand, empty hands, duplicate weapons, branching arms, floating hands, fused fingers, mismatched eyes, crossed eyes, distorted face, human eyes on lion, cartoon lion, text, watermark, clipped crown, obscured face",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Negative prompt"
+      }
+    },
+    "7": {
+      "class_type": "EmptySD3LatentImage",
+      "inputs": {
+        "width": 1664,
+        "height": 720,
+        "batch_size": 1
+      },
+      "_meta": {
+        "title": "Canvas - exact wall aspect 104:45"
+      }
+    },
+    "8": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 2026101305,
+        "steps": 50,
+        "cfg": 4,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1,
+        "model": [
+          "4",
+          0
+        ],
+        "positive": [
+          "5",
+          0
+        ],
+        "negative": [
+          "6",
+          0
+        ],
+        "latent_image": [
+          "7",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Generate - qwen-image"
+      }
+    },
+    "9": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "8",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Latents to pixels"
+      }
+    },
+    "10": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/qwen-image_M06_s2026101305_50steps/master",
+        "images": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "MASTER - 1664 x 720"
+      }
+    },
+    "11": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "upscale_method": "lanczos",
+        "width": 1248,
+        "height": 540,
+        "crop": "disabled",
+        "image": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Resize to LED wall - 1248 x 540"
+      }
+    },
+    "12": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/qwen-image_M06_s2026101305_50steps/wall",
+        "images": [
+          "11",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "WALL - 1248 x 540"
+      }
+    }
+  }
+}

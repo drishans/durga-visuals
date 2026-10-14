@@ -1,0 +1,182 @@
+{
+  "id": "M07",
+  "title": "Gold and vermilion / close devotional portrait",
+  "positive": "A stunning close devotional portrait of the face and crowned head of Ma Durga, centered in a very wide panoramic frame. Frontal symmetrical composition, peaceful maternal beauty, natural warm brown skin, soft closed smile, poised and compassionate. Two beautifully matched almond-shaped brown eyes look directly toward the viewer, equally sized irises and aligned pupils, subtle kohl, fine eyebrows. A small distinct vertical third eye is painted above the red bindi in the center of her forehead. Long lustrous black hair frames her face. Exquisite fine gold nose ring with a delicate chain, rich gold earrings, intricate layered gold jewelry, beautiful ruby and diamond accents. An elaborate high gold crown with fine filigree and shimmering gems is entirely visible inside the frame with a clear dark margin above it. Crimson silk and gold zari at the shoulders. The composition shows her head, crown, shoulders and the top of her necklace only; arms, hands, torso and lion are below the frame. Her face occupies the central quarter of the width and is large and exceptionally detailed. Luminous softly painted realism, refined features, finely resolved eyes, a dim circular gold halo behind the crown, deep dark burgundy background fading to black toward the spacious side edges. Gold shimmer and tiny points of diamond light are restrained and beautiful. Sacred devotional dignity, magnificent gold material, no lettering.",
+  "negative": "crossed eyes, divergent gaze, mismatched pupils, mismatched irises, blind eyes, blank white eyes, glowing eyes, floating eyes, distorted face, asymmetric face, crooked mouth, teeth, open mouth, crown cropped by frame, detached hands, hands visible, lion visible, harsh glare, excessive sparkles, plastic skin, text, logo, watermark",
+  "seed": 2026101406,
+  "steps": 50,
+  "model": "qwen-image",
+  "seconds": 57.17,
+  "status": "unreviewed",
+  "api": {
+    "1": {
+      "class_type": "UNETLoader",
+      "inputs": {
+        "unet_name": "qwen_image_2512_fp8_e4m3fn.safetensors",
+        "weight_dtype": "default"
+      },
+      "_meta": {
+        "title": "1. Qwen-Image-2512 FP8"
+      }
+    },
+    "2": {
+      "class_type": "CLIPLoader",
+      "inputs": {
+        "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      },
+      "_meta": {
+        "title": "2. Qwen-Image text encoder"
+      }
+    },
+    "3": {
+      "class_type": "VAELoader",
+      "inputs": {
+        "vae_name": "qwen_image_vae.safetensors"
+      },
+      "_meta": {
+        "title": "3. Matching VAE"
+      }
+    },
+    "4": {
+      "class_type": "ModelSamplingAuraFlow",
+      "inputs": {
+        "shift": 3.1,
+        "sampling": "flow",
+        "model": [
+          "1",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Flow sampling - Qwen shift 3.1"
+      }
+    },
+    "5": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "A stunning close devotional portrait of the face and crowned head of Ma Durga, centered in a very wide panoramic frame. Frontal symmetrical composition, peaceful maternal beauty, natural warm brown skin, soft closed smile, poised and compassionate. Two beautifully matched almond-shaped brown eyes look directly toward the viewer, equally sized irises and aligned pupils, subtle kohl, fine eyebrows. A small distinct vertical third eye is painted above the red bindi in the center of her forehead. Long lustrous black hair frames her face. Exquisite fine gold nose ring with a delicate chain, rich gold earrings, intricate layered gold jewelry, beautiful ruby and diamond accents. An elaborate high gold crown with fine filigree and shimmering gems is entirely visible inside the frame with a clear dark margin above it. Crimson silk and gold zari at the shoulders. The composition shows her head, crown, shoulders and the top of her necklace only; arms, hands, torso and lion are below the frame. Her face occupies the central quarter of the width and is large and exceptionally detailed. Luminous softly painted realism, refined features, finely resolved eyes, a dim circular gold halo behind the crown, deep dark burgundy background fading to black toward the spacious side edges. Gold shimmer and tiny points of diamond light are restrained and beautiful. Sacred devotional dignity, magnificent gold material, no lettering.",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Positive prompt - Ma Durga / M01"
+      }
+    },
+    "6": {
+      "class_type": "CLIPTextEncode",
+      "inputs": {
+        "text": "crossed eyes, divergent gaze, mismatched pupils, mismatched irises, blind eyes, blank white eyes, glowing eyes, floating eyes, distorted face, asymmetric face, crooked mouth, teeth, open mouth, crown cropped by frame, detached hands, hands visible, lion visible, harsh glare, excessive sparkles, plastic skin, text, logo, watermark",
+        "clip": [
+          "2",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Negative prompt"
+      }
+    },
+    "7": {
+      "class_type": "EmptySD3LatentImage",
+      "inputs": {
+        "width": 1664,
+        "height": 720,
+        "batch_size": 1
+      },
+      "_meta": {
+        "title": "Canvas - exact wall aspect 104:45"
+      }
+    },
+    "8": {
+      "class_type": "KSampler",
+      "inputs": {
+        "seed": 2026101406,
+        "steps": 50,
+        "cfg": 4,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1,
+        "model": [
+          "4",
+          0
+        ],
+        "positive": [
+          "5",
+          0
+        ],
+        "negative": [
+          "6",
+          0
+        ],
+        "latent_image": [
+          "7",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Generate - qwen-image"
+      }
+    },
+    "9": {
+      "class_type": "VAEDecode",
+      "inputs": {
+        "samples": [
+          "8",
+          0
+        ],
+        "vae": [
+          "3",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Latents to pixels"
+      }
+    },
+    "10": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/qwen-image_M07_s2026101406_50steps/master",
+        "images": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "MASTER - 1664 x 720"
+      }
+    },
+    "11": {
+      "class_type": "ImageScale",
+      "inputs": {
+        "upscale_method": "lanczos",
+        "width": 1248,
+        "height": 540,
+        "crop": "disabled",
+        "image": [
+          "9",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "Resize to LED wall - 1248 x 540"
+      }
+    },
+    "12": {
+      "class_type": "SaveImage",
+      "inputs": {
+        "filename_prefix": "durga_2026/Ma/qwen-image_M07_s2026101406_50steps/wall",
+        "images": [
+          "11",
+          0
+        ]
+      },
+      "_meta": {
+        "title": "WALL - 1248 x 540"
+      }
+    }
+  }
+}
