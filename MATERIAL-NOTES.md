@@ -9,7 +9,9 @@
 
 ## More material
 
-Sanch's playlist is now the primary style reference for the DJ/Dandiya set. The user is downloading it. Choose a few distinct motion families from those clips and combine them with live effects and title cues. Keep downloaded media on the Mac in ignored `show-media/` or outside the repo. Daytime needs one approved current event overview still.
+[Sanch's playlist: Gold Sparkles](https://www.youtube.com/playlist?list=PLTMq9yn_Rskq8ueXMWPc08YW8Wu_gB1ZX) is the primary style reference for the DJ/Dandiya set. The user is downloading it. Choose a few distinct motion families from those clips and combine them with live effects and title cues. Keep downloaded media on the Mac in ignored `show-media/` or outside the repo. Daytime needs one approved current event overview still.
+
+The playlist title/link were verified, but the public page did not expose clip entries to the metadata reader. No videos were played or visually reviewed. On the Mac, inspect the downloaded clips to choose favorite examples and match their pacing, zooms, color changes and transitions before tuning the shaders.
 
 The [Resolume footage catalog](https://resolume.com/footage) is another source of VJ packs designed for layering. Preview and check the license before buying anything; begin with the supplied playlist and existing USB material.
 
