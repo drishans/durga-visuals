@@ -1,32 +1,32 @@
 # Mac handoff
 
-Copy the entire **Durga 2026** folder from dGold to the Mac's internal storage before building the show. Open the copied **Project** folder in the next chat. The USB holds a complete project snapshot, the meeting ZIP, selected prior-year media, and a place for current ads. Git is optional for playback; clone the public repository separately if you want to edit and sync shader sources. Keep ads and prior-year media outside the public repository.
+The meeting changed the priority: go further on DJ night and Dandiya with energetic motion and title takeovers. Daytime may use one approved event overview still. Continue shader coding and Wire setup on the M1 Max / 64 GB Mac. The Windows GPU is occupied; do not use it until the user releases it.
 
 ## Start here
 
-1. Read `START-HERE.txt` at the top of the copied USB folder and `Previous years/REUSE-NOTES.md` for the actual media shortlist and caveats.
-2. Open `Project/outputs/demo.html` for the meeting. The 90-second overview is beside it. `Project/outputs/dj-titles/` contains transparent gold title PNGs for DJ Edwin, DJ Mumbai Rani, and DJ Dinu, plus editable SVGs and 1664 x 720 masters.
-3. In Resolume, create a 1248 x 540 composition. Confirm the installed edition and version before configuring output. The processor's input raster and refresh rate still need Sam's confirmation.
-4. Review `Project/Ma/index.html` for the new Durga studies, exact prompts, and close-review notes before choosing a still. The earlier USB image shortlist is superseded by the user's review: 03 is rejected, 09/12 have defects, 14 is the best old reference, 16 needs eye correction, and 20 is secondary. Start with the chosen stable still and one subtle accent. Then try the seven `.fs` shaders using [the Wire walkthrough](shaders/README.md). They have browser validation only; no compiled Wire patches exist yet.
-5. Try `shaders/PrismaticTitle.fs` on the DJ PNGs for colorful animated chrome and apparent depth. Its Wire setup is in `shaders/README.md`. Read `MATERIAL-NOTES.md` for more existing USB footage. The latest Ma images and shader are in Project, separate from the older meeting ZIP.
-6. Rehearse three to five layers on the Mac, save the composition beside the copied media, and reopen it with the USB removed. Do the camera test after this works.
+1. Clone or update the Git repository on the Mac. The earlier USB Project snapshot predates this direction change. Use the USB for prior-year media and ads; the retired meeting presentation is not needed.
+2. Read [the Wire + GLSL tutorial](shaders/WIRE-TUTORIAL.md). Build RadialRave as a Source and the PrismaticTitle + TitleTakeover chain as an Effect. The two tutorial examples have not yet been rendered or compiled in Wire.
+3. Create a 1248 x 540 Resolume composition. Confirm the installed edition/version and the processor's input signal with Sam before configuring output.
+4. Copy selected playlist footage, prior-year media and ads to the internal SSD. Keep these, the composition and consolidated patches in `show-media/` or another folder outside Git. The existing transparent title PNGs are in `outputs/dj-titles/`.
+5. Make one title clip each for DJ Edwin, DJ Mumbai Rani and DJ Dinu. Set readable size individually. Verify clip-trigger restart, readable hold, zoom-through and fade-out.
+6. Rehearse three to five layers, save, and reopen with the USB disconnected. Camera work comes after playback works.
 
-## Suggested layer order, bottom to top
+## Layers, bottom to top
 
-| Layer | Performance | DJ |
+| Layer | DJ / Dandiya | Daytime / performance |
 | --- | --- | --- |
-| 1 | Quiet gold backing or fallback | Gold loop or Wire source |
-| 2 | Stable Durga image chosen after close review | Alternate texture or camera, initially off |
-| 3 | Very faint fire/light near the bottom, if available | Gold dust or geometric accent |
-| 4 | Sparse gold dust at the edges | Transparent DJ title PNG |
-| 5 | Announcement/ad override, normally off | Announcement/ad override, normally off |
+| 1 | Playlist footage or procedural source | Approved overview or quiet backing |
+| 2 | Alternate pattern or kaleidoscope | Optional stable Durga portrait |
+| 3 | DJ takeover, normally hidden | Very faint base/edge accent if needed |
+| 4 | Crowd feed after testing | Usually off |
+| 5 | Clean ad / overview override | Clean ad / overview override |
 
-Start accents around 5-12% opacity and adjust by eye on the actual wall. Use Screen/Add for bright-on-black accent footage; use normal alpha blending for the transparent title PNGs. Keep deity faces and hands stable, and restrict displacement to background/accent layers. Ads should be shown cleanly, with decorative overlays cleared. Audio and camera input remain separate from the visuals until tested.
+Use normal alpha for transparent DJ titles. Use Screen/Add deliberately for bright-on-black accents. Clear decorative layers for ads and announcements. Keep portraits' faces and hands stable. The downloaded footage provides base motion; shaders and Resolume transforms provide variation and musical timing.
 
-The prior-year 1152 x 544 Durga stills need proportional fitting. At full wall height they occupy about 1144 x 540, leaving roughly 52 pixels per side for the backing. Avoid stretching or cropping crowns to fill the width. Most old loops are 16:9; choose their crop deliberately.
+## Existing assets and remaining decisions
 
-## Context for the next chat
+[MATERIAL-NOTES.md](MATERIAL-NOTES.md) points to reusable USB footage. [Ma/index.html](Ma/index.html) retains image choices and review notes. Old 03 is rejected; 09/12 have defects; 14 is the preferred old reference; 16 needs eye correction. Prior-year 1152 x 544 images should be fitted proportionally, not stretched to the wall.
 
-The user knows GLSL and normally operates three to five Resolume layers by hand. Last year's successful performance look was a stable Durga still with barely visible fire/effects. Keep that approach. The Mac is M1 Max / 64 GB and has Wire; it is the only show computer. Windows RTX 5090 / 32 GB is for generation. No new framework or video-model batch is needed. X4 camera input, trail effects, native Wire compilation, the exact laptop-to-wall connection, and performance under the intended layer count remain untested. See [SHOW-PLAN.md](SHOW-PLAN.md).
+Still to test: native Wire compilation, alpha behavior, tempo/retrigger controls, HDMI adapter and processor mapping, brightness, and sustained performance at the intended layer count. [SHOW-PLAN.md](SHOW-PLAN.md) also retains the later X4/OBS camera experiment.
 
-Sanch handles the screen/event coordination, Sam supplies the panels, and Venu is the photographer. The meeting moved a day later; do not assume a calendar date. The user is downloading current ads into the USB folder. No one has been contacted on their behalf.
+Sanch manages screen/event coordination and supplied the playlist. Sam supplies the panels. Venu is the photographer. No one has been contacted on the user's behalf. The next Mac chat should begin with one running Source and one title Effect, not another AI generation batch.

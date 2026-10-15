@@ -1,72 +1,33 @@
 # Durga visuals 2026
 
-Golden glamour and contemporary bling for a three-night Durga event. Generate on a Windows RTX 5090; play from an M1 Max Mac in Resolume. LED wall: **1248 x 540**, aspect **104:45**.
+Live DJ and Dandiya visuals, built on the M1 Max Mac with Resolume and Wire. Direction after the organizer meeting: energetic abstract motion, beat-driven cuts, color changes, and DJ names that take over the wall. Daytime can use one approved event overview still. Gold is one palette, not a requirement for every look.
 
-![Meeting visual directions](outputs/previews/meeting-collection.jpg)
+LED composition: **1248 x 540**, aspect **104:45**. Confirm the actual computer output signal with Sam before mapping the wall.
 
-## Start here
+## Start on the Mac
 
-- [Ma Durga image review](Ma/index.html): local Qwen and Z-Image studies, close-review notes, [editable prompts](Ma/prompts.json), and [generation/editing workflows](Ma/README.md). These are separate from the abstract background collection.
-- [Colorful animated DJ titles](shaders/README.md#colorful-dj-titles), [USB reuse notes](MATERIAL-NOTES.md), and [actual 3D options for later](Ma/3D-NEXT.md).
-- [Mac handoff and familiar layer setup](MAC-HANDOFF.md), plus [transparent DJ title layers](outputs/dj-titles/).
-- **Meeting demo:** [15 curated looks](outputs/demo.html), a [90-second silent overview](outputs/meeting-showreel.mp4), and the [meeting guide](MEETING.md). The local `outputs/meeting-demo.zip` bundles everything for the Mac; extract it and open `demo.html`.
-- **Current direction: live GLSL through Resolume Wire.** Start with the [first-patch walkthrough](shaders/README.md). Use the stills as textures; the completed video collection is optional.
-- [Show plan and camera experiment](SHOW-PLAN.md): Mac rehearsal, output mapping, operating layout, and the first X4/OBS test.
-- [Browse the collection](outputs/index.html): 39 still renders and 11 finished loops. The meeting selection contains 12 new still directions and three existing motion samples. Open either page locally to review it.
-- [Wall stills](outputs/stills/wall/) and [1664 x 720 masters](outputs/stills/master/).
-- [Looping MP4 clips](outputs/video/loops/) and [motion prompts](outputs/golden-glamour-motion-prompts.json).
-- [Original still prompts](outputs/golden-glamour-prompts.md), [meeting prompts](outputs/meeting-prompts.md), [render settings and seeds](outputs/catalog/), and [video processing records](outputs/video/catalog/).
-- [Live GLSL shaders and Resolume routing](shaders/README.md), with an interactive local preview.
-- [Setup and verification](outputs/setup-status.md). ProRes LT masters stay local in `outputs/video/prores/`; model weights and raw video are excluded from Git.
+1. Clone this repository, or pull the latest version in an existing checkout. Keep show media on the Mac's internal storage.
+2. Follow the [Wire + GLSL tutorial](shaders/WIRE-TUTORIAL.md): first source, first effect, exposed controls, beat sync, title takeover, and code changes.
+3. Use [the shader catalog](shaders/README.md) for the seven existing effects/sources. Two new [tutorial examples](shaders/examples/) are ready for their first native test.
+4. Follow [MAC-HANDOFF.md](MAC-HANDOFF.md) to assemble the live layers and [SHOW-PLAN.md](SHOW-PLAN.md) for the venue rehearsal.
 
-## ComfyUI setup
-
-1. Install a current ComfyUI with NVIDIA-compatible PyTorch. Tested here with ComfyUI 0.39.0, Torch 2.14.1+cu130, and an RTX 5090 with 32 GB VRAM.
-2. Copy [extra_model_paths.yaml](outputs/extra_model_paths.yaml) into the ComfyUI root, merging existing configuration if needed. It points to `D:/AI/models/`; change that path for another machine. Restart while the queue is empty.
-3. Put the weights below in the indicated subfolders. No custom nodes are required.
-4. Drag a workflow JSON into ComfyUI. For motion, select a generated wall PNG in the reference-image node, then Run. If a newly copied image is missing, use **Edit > Refresh Node Definitions** and select it again. **Fit View (.)** frames the graph.
-
-| Workflow | Model files under `D:/AI/models/` |
-| --- | --- |
-| [Full Z-Image](outputs/golden-glamour-z-image.json) | `diffusion/z_image_bf16.safetensors`, `text_encoders/qwen_3_4b.safetensors`, `vae/ae.safetensors` |
-| [Wan 2.2 motion](outputs/golden-glamour-wan-motion.json) | `diffusion/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors`, `diffusion/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors`, `text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors`, `vae/wan_2.1_vae.safetensors` |
-
-Download instructions and model cards: [Z-Image](https://docs.comfy.org/tutorials/image/z-image/z-image), [Wan 2.2](https://docs.comfy.org/tutorials/video/wan/wan2_2), [official Wan repack](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged). Weights are separate downloads with their own upstream terms. The motion graph adapts ComfyUI's official first/last-frame template.
-
-## Wiring refresher
-
-![ComfyUI still workflow](outputs/previews/comfyui-z-image-workflow.jpg)
-
-Connect sockets with matching types. One output can feed multiple inputs.
-
-- **Model:** diffusion loader -> sampling shift -> sampler.
-- **Prompt:** text encoder -> positive/negative text encode -> sampler conditioning. The legacy `CLIP` label includes Qwen and UMT5 here.
-- **Image:** empty latent -> sampler -> VAE decode -> Save Image. The VAE turns compressed latents into pixels; it does not interpret the prompt.
-- **Motion:** one reference image feeds both first and last frame inputs -> high-noise sampler -> low-noise sampler -> VAE decode -> Create Video -> Save Video.
-
-Full Z-Image uses **35 steps / CFG 4 / res_multistep / simple / shift 3**. Wan uses **20 total steps / CFG 4 / Euler / simple / shift 8**, split 10+10 across its two experts. Keep a seed fixed to compare prompt changes.
-
-Wan produces 81 frames at 16 fps on a 1248 x 544 canvas. The delivery script crops two pixels from the top and bottom, interpolates motion, then eases forward and backward through an 8-second cycle at 30 fps. This avoids a tail-to-head dissolve. Endpoint conditioning alone does not guarantee a clean seam. Clips prefixed `FX_` instead use periodic 2D displacement of a still; they are procedural animations, not Wan video. Review motion and joins before show playback.
-
-Useful later additions: compatible LoRA for style, image-to-image through VAE Encode, masks/inpainting for local changes, model-compatible ControlNet for structure, and upscaling after decoding. Adapters from SDXL, FLUX, Z-Image, and Wan are not interchangeable.
-
-## Reproduce batches
-
-Run from the project root with the portable Python executable or an environment containing Pillow, NumPy, and SciPy. ComfyUI must be running at `http://127.0.0.1:8188`; FFmpeg and FFprobe must be on PATH for loop delivery. Replace `<ComfyUI>` with your actual ComfyUI directory.
-
-```powershell
-python scripts/render_stills.py --comfy-root '<ComfyUI>' --variants 1
-python scripts/render_stills.py --comfy-root '<ComfyUI>' --prompts outputs/meeting-prompts.md --seed 2026101400 --variants 2
-python scripts/render_motion_batch.py --comfy-root '<ComfyUI>' --start 0 --count 1
-python scripts/contact_sheet.py
+```sh
+git clone https://github.com/drishans/durga-visuals.git
+cd durga-visuals
 ```
 
-The scripts save seeds and prompts, retain PNG workflow metadata, and stop if another render occupies the queue. Completed catalog entries allow resuming a batch. API versions of both workflows are included beside the UI JSONs. MCP is optional; these scripts use the local ComfyUI API directly.
+The retired meeting demo has been removed from the current repository. Existing stills, loops, titles and generation records remain reusable. No Windows generation setup is needed for shader work on the Mac.
 
-## Resolume handoff
+## Useful assets
 
-Use a **1248 x 540** composition. Start with liquid gold or vermilion silk behind performers; use the waveform, facets, chains, and prisms for DJ material. Stills also animate through transforms, distortion, feedback, kaleidoscopes, and audio-reactive effect parameters. Video is useful source motion, not a requirement for every effect.
+- [DJ title PNGs and editable SVGs](outputs/dj-titles/): DJ Edwin, DJ Mumbai Rani, DJ Dinu. Use them with PrismaticTitle and the takeover tutorial, or animate their scale directly in Resolume.
+- [Existing 39 stills and 11 loops](outputs/index.html), [wall PNGs](outputs/stills/wall/), and [loop files](outputs/video/loops/).
+- [Ma image review](Ma/index.html), [prompts and workflows](Ma/README.md). Keep a chosen portrait stable when used behind a performance.
+- [Prior-year material notes](MATERIAL-NOTES.md) and [wall calibration card](outputs/calibration/wall-check-1248x540.png).
+- Generation archive: [setup](outputs/setup-status.md), [original prompts](outputs/golden-glamour-prompts.md), [later still prompts](outputs/meeting-prompts.md), and [motion prompts](outputs/golden-glamour-motion-prompts.json). Model weights remain outside Git.
 
-The clips in `video/loops/` have no audio and use all-intra H.264. Local ProRes LT copies are available for conversion to DXV in [Resolume Alley](https://resolume.com/software/alley). Repeating a delivered loop uses normal forward looping; avoid an extra clip crossfade that would change its timing. Try slow playback and gentle effects first. Reversal, where used, is already baked in. These short cycles are reusable building blocks, not a finished three-night show. The separate meeting showreel is a labeled 1280 x 720 presentation, not a wall-ready loop.
+Keep downloaded playlist footage, ads, and Wire patch bundles in a local `show-media/` directory or another folder outside Git. The repo is for editable shaders, guides, and our existing assets. Sanch's playlist is the style reference; select useful excerpts before building the show.
 
-Black overlay plates are RGB, not transparent: use Screen/Add and adjust opacity. Confirm readability and brightness on the actual wall. Existing Durga/Sindoor Khela imagery remains on last year's USB and is not included here. Live camera interaction is a separate later experiment.
+## What is tested
+
+The seven original shaders passed browser rendering and loop checks previously. Native Wire compilation, alpha blending, beat triggers and show-Mac performance still need testing. The two new tutorial shaders have only static checks; they were not rendered because the PC GPU is reserved. No compiled Wire patches are included. Camera interaction remains a later phase.

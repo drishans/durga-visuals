@@ -8,3 +8,5 @@ __pycache__/
 outputs/video/raw/
 outputs/video/prores/
 outputs/*.zip
+show-media/
+.DS_Store

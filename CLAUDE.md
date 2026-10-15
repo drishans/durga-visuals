@@ -1,7 +1,7 @@
 # Project handoff
 
-Read `AGENTS.md` for the project constraints and current direction.
+Read `AGENTS.md`. Current direction after the organizer meeting: energetic DJ/Dandiya visuals and DJ-name takeovers; daytime may use one approved event overview still.
 
-Prioritize live GLSL/ISF in Resolume Wire. Start with `shaders/README.md`; source shaders and the local preview are under `shaders/`. The user owns Wire. Native Wire patches still need to be created and tested on the show Mac.
+Continue on the M1 Max Mac with Resolume Wire. Start with `shaders/WIRE-TUTORIAL.md`, then `MAC-HANDOFF.md`. Seven existing shaders have browser validation. The two new files in `shaders/examples/` have static checks only and still need native compilation/rendering. No compiled Wire patches exist.
 
-The completed collection is in `outputs/index.html`: 39 still renders and 11 loops. The meeting demo is `outputs/demo.html`: 12 curated new stills and three existing motion samples, plus `outputs/meeting-showreel.mp4` and a local portable ZIP. `MEETING.md` has the conversation guide. No generation batch is pending. Do not start another video batch unless requested. Model weights stay outside the repository. Keep documentation concise and label browser-only validation accurately.
+The Windows GPU is occupied. Do not generate, render shader previews, or use that GPU until explicitly released. Preserve existing stills, loops, workflows and metadata. The old meeting presentation was removed; use `outputs/index.html` and `Ma/index.html` only as asset archives. Downloaded playlist footage and ads stay in ignored `show-media/` or outside the repository. Keep this project simple.

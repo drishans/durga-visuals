@@ -1,12 +1,12 @@
 # Show plan and camera experiment
 
-Current direction: manually operate three to five layers, keeping prior-year Durga images stable with barely visible fire/light/dust accents. Use editable Wire shaders for motion, AI stills as textures, and the 11 completed loops as optional playback material. [MAC-HANDOFF.md](MAC-HANDOFF.md) gives the starting layer order and USB transfer instructions. The show runs entirely on the M1 Max Mac. The PC is for preparation.
+Current direction after the meeting: prioritize energetic DJ and Dandiya motion, playlist footage, beat-driven effects and DJ-name takeovers. Daytime may use one approved event overview still. Operate three to five layers manually on the M1 Max Mac; keep any performance portrait stable. Start with [the Wire tutorial](shaders/WIRE-TUTORIAL.md) and [Mac handoff](MAC-HANDOFF.md). The Windows GPU is occupied and must not be used. Camera interaction remains a later phase.
 
 ## Before depending on live effects
 
 | Priority | Missing decision or test | Done when |
 | --- | --- | --- |
-| 1 | Build one real Wire Source and one Effect on the Mac | LiquidGold and GoldenFlow run inside the installed Resolume, with exposed controls and no missing resources |
+| 1 | Build one real Wire Source and one Effect on the Mac | RadialRave and the DJ takeover run in the installed Resolume, with exposed controls, correct alpha, readable names and reliable retriggering |
 | 1 | Confirm LED processor input with the wall operator | Accepted HDMI resolution/refresh rate, active image rectangle, scaling, and connection path are written down; the 1248 x 540 composition reaches the wall without stretching or clipping |
 | 1 | Make a minimal show composition | Daytime, performance, dance/DJ, camera, and fallback looks are immediately accessible |
 | 1 | Rehearse the Mac output and recovery | A still, a loop, and a shader play on an external screen; camera can be removed without disrupting the fallback; composition reopens with all media offline |
@@ -19,8 +19,9 @@ Use the [1248 x 540 wall-check card](outputs/calibration/wall-check-1248x540.png
 
 ## Minimal show layout
 
-- Base layer: quiet still, slow loop, or procedural source. Keep a familiar fallback clip ready.
-- Accent layer: gold dust, fringe, or ribbons, with deliberate blend mode and modest opacity.
+- Base layer: selected playlist footage or procedural pattern for DJ/Dandiya, approved overview still for daytime. Keep a familiar fallback clip ready.
+- Accent layer: contrasting geometry, kaleidoscope or a short bright hit. Keep strong changes deliberate and tied to musical cues.
+- Title layer: one clip per DJ, with a readable hold before zooming through. Verify all three names at the real wall size.
 - Camera layer: disabled by default, brought in for suitable moments. Its failure should leave the base look usable.
 - Separate looks for welcome/daytime, performances, dance/DJ, and camera play. Friday/Saturday/Sunday assignments remain provisional until the running order is known.
 - Map a small set of controls: next look, camera opacity, effect intensity, tempo/phase, clear trails, and return to fallback. Avoid adjusting shader code during a performance.

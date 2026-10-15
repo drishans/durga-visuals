@@ -9,6 +9,8 @@
 
 ## More material
 
-The [Resolume footage catalog](https://resolume.com/footage) is a direct source of VJ packs, including abstract loops and material designed for layering. Preview packs before buying and check their license. For this event, there is already enough base footage on the USB; the useful gaps are a subtle flame/ember overlay and a clean current Sindoor/Bijoya slide, rather than another large loop collection.
+Sanch's playlist is now the primary style reference for the DJ/Dandiya set. The user is downloading it. Choose a few distinct motion families from those clips and combine them with live effects and title cues. Keep downloaded media on the Mac in ignored `show-media/` or outside the repo. Daytime needs one approved current event overview still.
 
-Keep the Ma portrait stable, add a faint base/edge accent, and reserve strong kaleidoscope or distortion for abstract backgrounds and DJ scenes. The new PrismaticTitle shader uses the existing transparent DJ names with any color palette. Current ads stay in the USB `Ads` folder, outside the public repository.
+The [Resolume footage catalog](https://resolume.com/footage) is another source of VJ packs designed for layering. Preview and check the license before buying anything; begin with the supplied playlist and existing USB material.
+
+When a Ma portrait is used, keep it stable with only a faint base/edge accent. Strong kaleidoscope, zoom and color changes belong in the DJ/Dandiya scenes. The [Wire tutorial](shaders/WIRE-TUTORIAL.md) covers title takeovers and a radial source; the examples still need native testing. Current ads stay outside public Git.

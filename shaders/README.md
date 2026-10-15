@@ -1,5 +1,7 @@
 # GLSL into Resolume
 
+**Start with [the Mac Wire + GLSL tutorial](WIRE-TUTORIAL.md)** for the current DJ/Dandiya direction: beat control, title takeovers and editable code examples. The two new files under `examples/` have static checks only and are not in the browser preview. The catalog below describes the seven existing shaders.
+
 These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declaration. They use no external textures except the source image for the three effects.
 
 | File | Role | Good starting point |
