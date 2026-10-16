@@ -59,7 +59,7 @@ A stage-mounted wide crowd view should work well as an abstract moving texture. 
 
 - Camera-to-Mac distance, mounting point, lighting, power, and cable route.
 - Whether the cameraman can supply a spare clean feed while keeping his existing duties; exact adapter, output format, and Apple Silicon compatibility.
-- Exact Resolume edition (Avenue or Arena), Resolume/Wire versions, and the laptop-to-processor adapter/cable chain.
+- The laptop-to-processor adapter/cable chain. (Resolved: the show runs Avenue 7.28.1 with Wire 7.28.1.)
 - Whether camera interaction is a short DJ feature or a separate participation station, and who operates it.
 
 The Olympus remains a later alternative. Do not assume its HDMI connector provides a clean continuous live feed, or that it supports USB webcam output. Verify those behaviors and power/sleep behavior on the exact E-M10 Mark IV before choosing or buying capture hardware.
