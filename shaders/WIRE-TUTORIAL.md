@@ -2,7 +2,7 @@
 
 Build one source and one title effect, then combine them with the playlist footage. Aim for reusable motion you can cue live: radial bursts, kaleidoscopes, color changes and huge DJ-name entrances. Basic scale and opacity animation can stay in Resolume. Use Wire for a custom visual or one control coordinating several changes.
 
-**Status:** these two examples have static checks only. Nothing was rendered on the occupied PC GPU. Compile and test on the M1 Max. The older seven shaders have browser validation, not native Wire validation.
+**Status:** the two `examples/` files have static checks only. GoldTitleTakeover and the older seven shaders have browser validation, not native Wire validation. Compile and test on the M1 Max.
 
 ## 1. The pieces
 
@@ -39,30 +39,47 @@ For one-shot entrances, use Timeline or BPM Sync in one-shot mode and restart on
 
 Keep White hit on a separate manual control, normally zero; briefly raising and returning it gives a deliberate bright accent. Energy changes the pattern without changing its clock. Later, use Spectrum input -> Falloff/smoothing -> a bounded Energy range for audio response. This needs a tested audio input. Keep noisy audio away from Phase.
 
-## 4. DJ name enters, holds, then takes over
+## 4. DJ name takeover: GoldTitleTakeover
 
-First try a transparent DJ PNG on its own layer with Scale and Opacity animated in Resolume. The custom version below puts the entrance, readable hold and exit on one progress slider.
+[GoldTitleTakeover.fs](GoldTitleTakeover.fs) merges PrismaticTitle and TitleTakeover into one Bling / Golden Glamour effect for the transparent title PNGs in `show-media/DJ/Titles/` (`dj-edwin.png`, `dj-mumbai-rani.png`, `dj-dinu.png`). The PNG's bright face becomes animated metallic gold with a light sweep, edge glints and a soft bloom. The PNG's dark outline, extrusion and shadow are kept, so the name reads over busy tunnels.
 
-Create an **Effect** patch:
+**Status:** browser validated on October 16, 2026 (compiles; all three names render; Intro, Pulse and size checked by pixel measurement over black and busy stills). Native Wire compilation, TIME behavior in Wire and Mac performance still need testing. About 75 texture reads per pixel.
+
+### Build it in Wire 7.28.1
+
+1. New patch. In the Patch panel set category **Effect** and working resolution 1248 x 540.
+2. Add **Texture In**, an **ISF** node and **Texture Out**. In the ISF node's Attributes > Fragment Shader, browse to `shaders/GoldTitleTakeover.fs`.
+3. Connect `Texture In -> ISF inputImage`, then `ISF -> Texture Out`.
+4. Add one **Float In** per control and connect it to the matching ISF inlet. Copy names, defaults and ranges from the table. Arrange them in the Dashboard.
+5. Save as `Durga Gold Title`. In Avenue, put a title PNG in a clip on the Titles layer (normal blend), then drag `Durga Gold Title` from Effects onto that clip.
 
 ```text
-Texture In -> ISF: PrismaticTitle -> ISF: TitleTakeover -> Texture Out
-                 color/depth             progress/size
+Texture In -> ISF: GoldTitleTakeover -> Texture Out
+                 ^ Intro, Pulse, Pulse strength, Speed, Glow, Sparkle, Readable size, Opacity (Float In)
 ```
 
-Load [PrismaticTitle.fs](PrismaticTitle.fs) and [examples/TitleTakeover.fs](examples/TitleTakeover.fs). Connect each texture output to the next `inputImage`. Expose `progress`, `holdScale`, `exitScale` and `opacity` through Float In nodes with the header's ranges/defaults. Save as `Durga DJ Takeover`, then apply it to a [DJ title PNG](../outputs/dj-titles/). Use normal alpha compositing over the background.
+| Control | Inlet | Default | Range | Avenue mapping |
+| --- | --- | --- | --- | --- |
+| Intro | `intro` | 1.0 | 0-1 | BPM Sync **one-shot**, 4 beats, restart on clip trigger. 0 hidden, ~0.1 slams in oversized with glitch, settles by 0.55, clean hold from 0.7 |
+| Pulse (beat phase) | `pulse` | 1.0 | 0-1 | BPM Sync **loop**, 1 beat. The hit is at 0 and decays; 1 means no hit |
+| Pulse strength | `punch` | 0.6 | 0-1 | Manual; raise on drops |
+| Speed | `speed` | 1.0 | 0-3 | Manual, or BPM Sync between 0.5 and 2 over 8 beats. Drives sweep, shimmer and glints |
+| Glow | `glow` | 0.8 | 0-2 | Manual, or BPM Sync 0.6-1.4 over 2 beats |
+| Sparkle | `sparkle` | 0.6 | 0-1 | Manual |
+| Readable size | `size` | 1.0 | 0.5-2.5 | Per DJ, see below |
+| Opacity | `opacity` | 1.0 | 0-1 | Fade out, or use the layer opacity |
 
-| Progress | Result |
-| --- | --- |
-| 0 | Hidden |
-| 0-0.18 | Fade in and expand |
-| 0.18-0.72 | Hold at readable size |
-| 0.72-1 | Zoom beyond the edges and fade away |
-| 1 | Hidden, ready to reset |
+Running Intro from 1 back to 0 plays the entrance in reverse as a glitch-out.
 
-Scrub first, then animate over a four-second one-shot, restarting on clip trigger. Make one clip per DJ. Tune Readable size per name: Mumbai Rani is much wider than Edwin or Dinu. Aim for 85-90% wall width during the hold; clipping is intentional only on exit. The PNG's empty margins count toward scaling.
+**Readable size per DJ** (measured at 1248 x 540, including glow): Edwin 1.85 (84% of wall width), Mumbai Rani 1.02 (85%), Dinu 2.0 (73%; above about 2.1 the small "DJ" line above the name crops at the top). Make one clip per DJ with its size saved in the clip.
 
-Run a continuous beat-synced background behind this manually triggered title. PrismaticTitle can keep its independent color motion, or expose its Phase and Auto animate inputs for beat control too. The takeover uses a clamped progress value so its final frame stays hidden.
+### Check in Wire before the show
+
+- The sweep and glints move by themselves. If they freeze in Wire, TIME is not reaching the ISF node; set Speed to 0 and animate Glow instead, then report it so the shader can take a phase input.
+- Scrub Intro and Pulse manually first, then turn on BPM Sync. Disable BPM Phase Lock for Intro so every trigger starts at 0.
+- Check all three names over dark footage and over the busiest tunnel. Watch for frame drops with three to five layers running.
+
+The older two-node chain (`PrismaticTitle -> TitleTakeover`) still works for a colorful chrome look; both files are unchanged.
 
 ## 5. Things to change in the code
 

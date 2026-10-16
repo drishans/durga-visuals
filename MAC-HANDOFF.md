@@ -8,18 +8,18 @@ The meeting changed the priority: go further on DJ night and Dandiya with energe
 2. Read [the Wire + GLSL tutorial](shaders/WIRE-TUTORIAL.md). Build RadialRave as a Source and the PrismaticTitle + TitleTakeover chain as an Effect. The two tutorial examples have not yet been rendered or compiled in Wire.
 3. Create a 1248 x 540 composition in Resolume Avenue 7.28.1 (the show app; Arena is also installed but not used). Check it with `outputs/calibration/wall-check-1248x540.png`. Confirm the processor's input signal with Sam before configuring output.
 4. Done except conversion: media is in ignored `show-media/`. Run the two folders in `show-media/_alley/` through Alley (DXV3 High Quality, no alpha), then move the outputs into place as `ALLEY-LIST.md` describes. Save the composition and consolidated patches in `show-media/` too.
-5. Make one title clip each for DJ Edwin, DJ Mumbai Rani and DJ Dinu. Set readable size individually. Verify clip-trigger restart, readable hold, zoom-through and fade-out.
+5. Build the [GoldTitleTakeover](shaders/WIRE-TUTORIAL.md#4-dj-name-takeover-goldtitletakeover) effect in Wire, then make one title clip each for DJ Edwin, DJ Mumbai Rani and DJ Dinu from `show-media/DJ/Titles/`. Set readable size individually. Verify clip-trigger restart, readable hold, zoom-through and fade-out.
 6. Rehearse three to five layers, save, and reopen with the USB disconnected. Camera work comes after playback works.
 
 ## Show media on the Mac
 
 | Folder | Contents |
 | --- | --- |
-| `show-media/DJ/` | 6 Gold Sparkles playlist clips (bursts, light paths, streaks) and `LED DJ Visuals/` (tunnels, trippy, sunsets, party lights) |
-| `show-media/Dandiya/` | 8 Gold Sparkles playlist clips (stars, bokeh, glitter) and `LED Dandiya Visuals/` (mandalas, kaleidoscopes, tunnels) |
-| `show-media/Daytime/` | LED Durga Puja films, Sindur Khela/Bijoya, genai images. The approved overview still is not chosen yet |
-| `show-media/Ads/` | All confirmed 2026 ads, including `incredible-india-promos/`. More are coming. The portrait ad needs gold side fill |
-| `show-media/Titles/` | Transparent DJ title PNGs, masters and SVGs |
+| `show-media/DJ/` | `YouTubeGold/` (6 Gold Sparkles clips: bursts, light paths, streaks), `LED DJ Visuals/` (tunnels, trippy, sunsets, party lights), `DJ Mumbai Rani/` (her six name loops) and `Titles/` (transparent DJ title PNGs, masters, SVGs) |
+| `show-media/Dandiya/` | 8 Gold Sparkles clips (stars, bokeh, glitter) and `LED Dandiya Visuals/` (mandalas, kaleidoscopes, tunnels) |
+| `show-media/Daytime/` | `GGG Stills/` (backgrounds for Oct 16-18), `sat_morning/`, `sun_morning/`, LED Durga Puja films, Sindur Khela/Bijoya, genai images |
+| `show-media/Ads/` | All confirmed 2026 ads, including `incredible-india-promos/`. The portrait ad needs gold side fill |
+| `show-media/Shubho Bijoya/` | Bijoya stills |
 
 Playlist clip 03 has a faint stock watermark. The hour-long party clips should be trimmed before any DXV conversion. Prior-year 2024 Europe and 2025 Royal folders were skipped because this year's theme is Bling / Golden Glamour. dGold remains the untouched backup.
 

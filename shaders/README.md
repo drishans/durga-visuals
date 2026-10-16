@@ -1,6 +1,6 @@
 # GLSL into Resolume
 
-**Start with [the Mac Wire + GLSL tutorial](WIRE-TUTORIAL.md)** for the current DJ/Dandiya direction: beat control, title takeovers and editable code examples. The two new files under `examples/` have static checks only and are not in the browser preview. The catalog below describes the seven existing shaders.
+**Start with [the Mac Wire + GLSL tutorial](WIRE-TUTORIAL.md)** for the current DJ/Dandiya direction: beat control, title takeovers and editable code examples. The two new files under `examples/` have static checks only and are not in the browser preview. The catalog below describes the browser-validated shaders.
 
 These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declaration. They use no external textures except the source image for the three effects.
 
@@ -13,8 +13,9 @@ These are editable **ISF 2.0 fragment shaders**: GLSL plus a JSON input declarat
 | [GoldRibbons.fs](GoldRibbons.fs) | Procedural source | Twisting metallic ribbons framing performers |
 | [PrismField.fs](PrismField.fs) | Procedural source | Moving faceted reflections for DJ material |
 | [PrismaticTitle.fs](PrismaticTitle.fs) | Transparent title effect | Colorful chrome and apparent extrusion for all three DJ names |
+| [GoldTitleTakeover.fs](GoldTitleTakeover.fs) | Transparent title effect | Gold DJ-name takeover: metallic sweep, glints, bloom, Intro punch/glitch and beat Pulse. See [the tutorial](WIRE-TUTORIAL.md#4-dj-name-takeover-goldtitletakeover) |
 
-All seven are in the local preview. [Additional source settings and validation](NEW-SHADERS.md) cover the three new procedural looks. The procedural sources output opaque RGB; black becomes a transparent-looking accent only through the chosen blend mode.
+All eight are in the local preview (`python3 -m http.server 8765` from the repo root, then open `/shaders/preview/`). The preview can show titles over a busy still and has a 124 BPM demo for Intro and Pulse. [Additional source settings and validation](NEW-SHADERS.md) cover the three new procedural looks. The procedural sources output opaque RGB; black becomes a transparent-looking accent only through the chosen blend mode.
 
 ![Live flow effect](../outputs/previews/shader-golden-flow.jpg)
 
