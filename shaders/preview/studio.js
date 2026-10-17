@@ -9,7 +9,7 @@ const textureSelect = document.querySelector('#texture');
 shaderSelect.add(new Option('Prismatic title / effect','PrismaticTitle'));
 shaderSelect.add(new Option('Gold title takeover / effect','GoldTitleTakeover'));
 const isTitle = () => shaderSelect.value.includes('Title');
-for (const [id,name] of [['edwin','DJ Edwin'],['mumbai-rani','DJ Mumbai Rani'],['dinu','DJ Dinu']]) {
+for (const [id,name] of [['edwin','DJ Edwin'],['mumbai-rani','DJ Mumbai Rani'],['dinu','DJ Dinu'],['edwin-line','DJ Edwin (one line)'],['mumbai-rani-line','DJ Mumbai Rani (one line)'],['dinu-line','DJ Dinu (one line)']]) {
   textureSelect.add(new Option(name,`../../dj-titles/dj-${id}.png`));
 }
 const requestedShader = new URLSearchParams(location.search).get('shader');

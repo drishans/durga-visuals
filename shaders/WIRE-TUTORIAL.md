@@ -41,7 +41,7 @@ Keep White hit on a separate manual control, normally zero; briefly raising and 
 
 ## 4. DJ name takeover: GoldTitleTakeover
 
-[GoldTitleTakeover.fs](GoldTitleTakeover.fs) merges PrismaticTitle and TitleTakeover into one Bling / Golden Glamour effect for the transparent title PNGs in `show-media/DJ/Titles/` (`dj-edwin.png`, `dj-mumbai-rani.png`, `dj-dinu.png`). The PNG's bright face becomes animated metallic gold with a light sweep, edge glints and a soft bloom. The PNG's dark outline, extrusion and shadow are kept, so the name reads over busy tunnels.
+[GoldTitleTakeover.fs](GoldTitleTakeover.fs) merges PrismaticTitle and TitleTakeover into one Bling / Golden Glamour effect for the transparent title PNGs in `show-media/DJ/Titles/`. The PNG's bright face becomes animated metallic gold with a light sweep, edge glints and a soft bloom. The PNG's dark outline, extrusion and shadow are kept, so the name reads over busy tunnels.
 
 **Status:** browser validated on October 16, 2026 (compiles; all three names render; Intro, Pulse and size checked by pixel measurement over black and busy stills). Native Wire compilation, TIME behavior in Wire and Mac performance still need testing. About 75 texture reads per pixel.
 
@@ -71,7 +71,9 @@ Texture In -> ISF: GoldTitleTakeover -> Texture Out
 
 Running Intro from 1 back to 0 plays the entrance in reverse as a glitch-out.
 
-**Readable size per DJ** (measured at 1248 x 540, including glow): Edwin 1.85 (84% of wall width), Mumbai Rani 1.02 (85%), Dinu 2.0 (73%; above about 2.1 the small "DJ" line above the name crops at the top). Make one clip per DJ with its size saved in the clip.
+**Titles:** use the one-line versions `dj-edwin-line.png`, `dj-mumbai-rani-line.png` and `dj-dinu-line.png` ("DJ Name" on one line). The original two-line PNGs are kept.
+
+**Readable size per DJ** (one-line PNGs, measured at 1248 x 540 including glow, about 85% of wall width with room above and below): Edwin 1.22, Mumbai Rani 1.04, Dinu 1.45. Make one clip per DJ with its size saved in the clip.
 
 ### Check in Wire before the show
 
