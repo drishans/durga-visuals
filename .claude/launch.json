@@ -4,8 +4,23 @@
     {
       "name": "shader-studio",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765", "--bind", "127.0.0.1"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8765",
+        "--bind",
+        "127.0.0.1"
+      ],
       "port": 8765
+    },
+    {
+      "name": "title-render",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "scripts/title_render_server.py"
+      ],
+      "port": 8766,
+      "url": "http://127.0.0.1:8766"
     }
   ]
 }

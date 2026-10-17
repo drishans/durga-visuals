@@ -41,6 +41,10 @@ Keep White hit on a separate manual control, normally zero; briefly raising and 
 
 ## 4. DJ name takeover: GoldTitleTakeover
 
+**Show path (no Wire license):** unlicensed Wire output carries a watermark, so the show uses pre-rendered clips instead of running the shader live. `show-media/DJ/Titles/rendered/` holds, per DJ, `dj-<name>-intro.mov` (2.0 s punch/glitch-in, then 0.5 s hold; 75 frames) and `dj-<name>-loop.mov` (8 s hold loop; 240 frames). Both are 1248 x 540, 30 fps, ProRes 4444 with straight alpha, default Speed/Glow/Sparkle, Pulse off. The loop crossfades over its first second so the wrap is seamless, and its first frame continues directly from the intro's last frame. In Avenue, put both on the Titles layer (normal blend), set the intro clip to play once and continue to the loop clip, and loop the hold clip. For lighter playback, convert them in Alley to DXV3 with alpha. Re-render with `scripts/title_render_server.py` and `scripts/title_render.html` after changing the shader or titles.
+
+The Wire build below is only needed with a Wire license.
+
 [GoldTitleTakeover.fs](GoldTitleTakeover.fs) merges PrismaticTitle and TitleTakeover into one Bling / Golden Glamour effect for the transparent title PNGs in `show-media/DJ/Titles/`. The PNG's bright face becomes animated metallic gold with a light sweep, edge glints and a soft bloom. The PNG's dark outline, extrusion and shadow are kept, so the name reads over busy tunnels.
 
 **Status:** browser validated on October 16, 2026 (compiles; all three names render; Intro, Pulse and size checked by pixel measurement over black and busy stills). Native Wire compilation, TIME behavior in Wire and Mac performance still need testing. About 75 texture reads per pixel.
