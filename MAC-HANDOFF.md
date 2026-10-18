@@ -17,9 +17,10 @@ The meeting changed the priority: go further on DJ night and Dandiya with energe
 | --- | --- |
 | `show-media/DJ/` | `YouTubeGold/` (6 Gold Sparkles clips: bursts, light paths, streaks), `LED DJ Visuals/` (tunnels, trippy, sunsets, party lights), `DJ Mumbai Rani/` (her six name loops) and `Titles/` (transparent DJ title PNGs, masters, SVGs) |
 | `show-media/Dandiya/` | 8 Gold Sparkles clips (stars, bokeh, glitter) and `LED Dandiya Visuals/` (mandalas, kaleidoscopes, tunnels) |
-| `show-media/Daytime/` | `GGG Stills/` (backgrounds for Oct 16-18), `sat_morning/`, `sun_morning/`, LED Durga Puja films, Sindur Khela/Bijoya, genai images |
+| `show-media/Daytime/` | `GGG Stills/` (backgrounds for Oct 16-18), `GGG Video/`, LED Durga Puja films, Sindur Khela/Bijoya, genai images |
 | `show-media/Ads/` | All confirmed 2026 ads, including `incredible-india-promos/`. The portrait ad needs gold side fill |
 | `show-media/Shubho Bijoya/` | Bijoya stills |
+| `show-media/DurgaPuja2026.avc` | The Avenue composition. Tracked in Git (force-added, since `show-media/` is ignored); commit after each Avenue save you want to keep |
 
 Playlist clip 03 has a faint stock watermark. The hour-long party clips should be trimmed before any DXV conversion. Prior-year 2024 Europe and 2025 Royal folders were skipped because this year's theme is Bling / Golden Glamour. dGold remains the untouched backup.
 
